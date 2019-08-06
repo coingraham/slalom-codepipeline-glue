@@ -1,6 +1,6 @@
 
-output "instance_id" {
-  value = aws_instance.helloworld.id
+output "codepipeline_name" {
+  value = aws_codepipeline.codepipeline_glue_jobs.name
 }
 
 
