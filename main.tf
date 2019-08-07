@@ -41,16 +41,19 @@ data "aws_iam_policy" "AWSGlueMasterPolicy" {
 # Resources
 ############
 
+# Create Code Commit Repository for loading data for glue/datapipeline
 resource "aws_codecommit_repository" "this" {
   repository_name = "${var.project}-${var.environment}-repository"
   description     = "Code repository for Project: ${var.project} and Environment: ${var.environment}"
 }
 
+# Bucket for pipeline code to be loaded to
 resource "aws_s3_bucket" "codepipeline_bucket" {
   bucket = "${var.project}-${var.environment}-codepipeline-${var.region}"
   acl    = "private"
 }
 
+# Role for codepipeline to assume
 resource "aws_iam_role" "codepipeline_role" {
   name = "${var.project}-${var.environment}-codepipeline-role"
 
@@ -70,6 +73,7 @@ resource "aws_iam_role" "codepipeline_role" {
 EOF
 }
 
+# Policy for codepipeline to allow action to S3 and pull from codecommit
 resource "aws_iam_role_policy" "codepipeline_policy" {
   name = "codepipeline_policy"
   role = "${aws_iam_role.codepipeline_role.id}"
@@ -108,9 +112,9 @@ EOF
 #   name = "alias/myKmsKey"
 # }
 
-resource "aws_codepipeline" "codepipeline_glue_jobs" {
-  name     = "glue_jobs_deployment_pipeline"
-  # role_arn = data.aws_iam_role.CodePipelineGlue.arn
+# CodePipeline job to pull from codecommit and push to S3 for Glue and DataPipeline to consume
+resource "aws_codepipeline" "codepipeline_glue_dp_jobs" {
+  name     = "glue_jobs_datapipeline_deployment_pipeline"
   role_arn = aws_iam_role.codepipeline_role.arn
 
   artifact_store {
@@ -135,7 +139,7 @@ resource "aws_codepipeline" "codepipeline_glue_jobs" {
       output_artifacts = ["source_output"]
 
       configuration = {
-        RepositoryName  = "codepipeline"
+        RepositoryName  = "${var.project}-${var.environment}-repository"
         BranchName   = "master"
       }
     }
@@ -161,6 +165,7 @@ resource "aws_codepipeline" "codepipeline_glue_jobs" {
   }
 }
 
+# IAM role for Glue jobs to assume roles 
 resource "aws_iam_role" "glue_role" {
   name = "${var.project}-${var.environment}-glue-job-role"
 
@@ -180,13 +185,16 @@ resource "aws_iam_role" "glue_role" {
 EOF
 }
 
+# IAM Policy for glue to consume python in S3 for spark job
 resource "aws_iam_role_policy" "glue_job_policy" {
   name = "${var.project}-${var.environment}-glue-job-policy"
   role = "${aws_iam_role.glue_role.id}"
 
   policy = data.aws_iam_policy.AWSGlueMasterPolicy.policy
 }
-resource "aws_glue_job" "example" {
+
+# Sample Glue job with S3 reference
+resource "aws_glue_job" "this" {
   name     = "example"
   role_arn = "${aws_iam_role.glue_role.arn}"
   max_capacity = 2
@@ -194,4 +202,9 @@ resource "aws_glue_job" "example" {
   command {
     script_location = "s3://${aws_s3_bucket.codepipeline_bucket.bucket}/gluecode/helloworld.py"
   }
+}
+
+# Sample Datapipeline with S3 reference
+resource "aws_datapipeline_pipeline" "this" {
+    name        = "aws_datapipeline_job"
 }
