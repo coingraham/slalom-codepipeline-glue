@@ -1,0 +1,269 @@
+{
+    "objects": [
+        {
+            "id": "PropertyId_python_path",
+            "name": "Python Path",
+            "type": "Property",
+            "value": "/usr/local/bin:$PATH",
+            "key": "PATH"
+        },
+        {
+            "id": "PropertyId_pyspark_python",
+            "name": "PySpark Python",
+            "type": "Property",
+            "value": "/usr/bin/python3.6",
+            "key": "PYSPARK_PYTHON"
+        },
+        {
+            "id": "EmrConfigurationId_export_path_vars",
+            "name": "Export Path Variables",
+            "type": "EmrConfiguration",
+            "property": [
+                {
+                    "ref": "PropertyId_python_path"
+                },
+                {
+                    "ref": "PropertyId_pyspark_python"
+                }
+            ],
+            "classification": "export"
+        },
+        {
+            "id": "EmrConfigurationId_spark_hive_site",
+            "name": "Spark Hive Site",
+            "type": "EmrConfiguration",
+            "property": {
+                "ref": "PropertyId_hive_metastore"
+            },
+            "classification": "spark-hive-site"
+        },
+        {
+            "id": "PropertyId_hive_metastore",
+            "name": "Hive Metastore",
+            "type": "Property",
+            "value": "com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory",
+            "key": "hive.metastore.client.factory.class"
+        },
+        {
+            "id": "EmrConfigurationId_spark_env",
+            "name": "Spark Env",
+            "type": "EmrConfiguration",
+            "configuration": {
+                "ref": "EmrConfigurationId_export_path_vars"
+            },
+            "classification": "spark-env"
+        },
+        {
+            "id": "EmrClusterId_ppm",
+            "name": "EMR Cluster",
+            "type": "EmrCluster",
+            "subnetId": "#{my_emr_subnet_id}",
+            "emrManagedMasterSecurityGroupId": "#{my_emr_master_security_group_id}",
+            "emrManagedSlaveSecurityGroupId": "#{my_emr_slave_security_group_id}",
+            "serviceAccessSecurityGroupId": "#{my_emr_service_access_security_group_id}",
+            "masterInstanceType": "#{my_emr_master_instance_type}",
+            "coreInstanceType": "#{my_emr_core_instance_type}",
+            "configuration": [
+                {
+                    "ref": "EmrConfigurationId_spark_hive_site"
+                },
+                {
+                    "ref": "EmrConfigurationId_spark_env"
+                }
+            ],
+            "coreInstanceCount": "#{my_emr_instance_core_count}",
+            "releaseLabel": "emr-5.19.0",
+            "terminateAfter": "#{my_emr_terminate_after}",
+            "hadoopSchedulerType": "PARALLEL_FAIR_SCHEDULING",
+            "bootstrapAction": "#{my_bootstrap_script}",
+            "keyPair": "#{my_s3_base_path}1",
+            "region": "#{my_emr_region}",
+            "applications": [
+                "Spark",
+                "Sqoop"
+            ]
+        },
+        {
+            "id": "ShellActivityId_#{my_shell_activity1}",
+            "name": "#{my_shell_activity1}",
+            "type": "ShellCommandActivity",
+            "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_controller_scripts}/#{my_systems}/#{my_shell_activity1}.py",
+                "#{my_wrk_ppm_general}",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_s3_base_path}/Controller/Logs/stdout/#{my_shell_activity1}",
+            "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity1}"
+        },
+        {
+            "id": "ShellActivityId_#{my_shell_activity2}",
+            "name": "#{my_shell_activity2}",
+            "type": "ShellCommandActivity",
+            "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_controller_scripts}/#{my_systems}/#{my_shell_activity2}.py",
+                "#{my_wrk_ppm_general}",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_s3_base_path}/Controller/Logs/stdout/#{my_shell_activity2}",
+            "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity2}"
+        },
+        {
+            "id": "ShellActivityId_#{my_shell_activity3}",
+            "name": "#{my_shell_activity3}",
+            "type": "ShellCommandActivity",
+            "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_controller_scripts}/#{my_systems}/#{my_shell_activity3}.py",
+                "#{my_wrk_ppm_general}",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_s3_base_path}/Controller/Logs/stdout/#{my_shell_activity3}",
+            "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity3}"
+        },
+        {
+            "id": "Default",
+            "name": "Default",
+            "scheduleType": "ONDEMAND",
+            "failureAndRerunMode": "CASCADE",
+            "role": "#{my_emr_role}",
+            "resourceRole": "#{my_emr_resource_role}",
+            "pipelineLogUri": "s3://#{my_s3_base_path}/Logs/DataPipeline/"
+        }
+    ],
+    "parameters": [
+        {
+            "id": "my_environment",
+            "type": "string"
+        },
+        {
+            "id": "my_s3_base_path",
+            "type": "string"
+        },
+        {
+            "id": "my_bootstrap_script",
+            "type": "string"
+        },
+        {
+            "id": "my_system_bucket",
+            "type": "string"
+        },
+        {
+            "id": "my_controller_scripts",
+            "type": "string"
+        },
+        {
+            "id": "my_wrk_ppm_general",
+            "type": "string"
+        },
+        {
+            "id": "my_ingest_bucket",
+            "type": "string"
+        },
+        {
+            "id": "my_datalake_bucket",
+            "type": "string"
+        },
+        {
+            "id": "my_systems",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_subnet_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_master_security_group_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_slave_security_group_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_service_access_security_group_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_master_instance_type",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_core_instance_type",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_instance_core_count",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_terminate_after",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_region",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_role",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_resource_role",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity1",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity2",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity3",
+            "type": "string"
+        }
+    ],
+    "values": {
+        "my_environment": "dev",
+        "my_s3_base_path": "wrk-system-ppm-#{my_environment}",
+        "my_bootstrap_script": "s3://#{my_s3_base_path}/Config/emrBootstrap_py36.sh",
+        "my_system_bucket": "#{my_s3_base_path}",
+        "my_controller_scripts": "s3://#{my_s3_base_path}/Controller/Scripts",
+        "my_wrk_ppm_general": "s3://#{my_s3_base_path}/Config/wrk_ppm_general.py",
+        "my_ingest_bucket": "wrk-ingest-ppm-#{my_environment}",
+        "my_datalake_bucket": "wrk-datalake-ppm-#{my_environment}",
+        "my_systems": "PE",
+        "my_emr_subnet_id": "subnet-6b4b2f36",
+        "my_emr_master_security_group_id": "sg-096205745f33db931",
+        "my_emr_slave_security_group_id": "sg-0a82b9f5780744421",
+        "my_emr_service_access_security_group_id": "sg-045304204b8597b10",
+        "my_emr_master_instance_type": "m5.2xlarge",
+        "my_emr_core_instance_type": "m5.2xlarge",
+        "my_emr_instance_core_count": "3",
+        "my_emr_terminate_after": "1 Hour",
+        "my_emr_region": "us-east-1",
+        "my_emr_role": "PPM_DataPipelineRole",
+        "my_emr_resource_role": "PPM_DataPipelineResourceRole",
+        "my_shell_activity1": "wkf_pe_mstr_material_ods_stgm_material_location",
+        "my_shell_activity2": "wkf_pe_tran_invoice_header_ods_stgt_invoice_header",
+        "my_shell_activity3": "wkf_pe_mstr_material_ods_stgm_material"
+    }
+}

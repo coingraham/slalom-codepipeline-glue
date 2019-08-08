@@ -154,6 +154,7 @@ resource "aws_codepipeline" "codepipeline_glue_dp_jobs" {
     }
   }
 
+# TODO: need to code out this trim codebuild project
   stage {
     name = "Build"
 
