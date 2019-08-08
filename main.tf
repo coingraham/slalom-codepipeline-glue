@@ -312,10 +312,10 @@ resource "aws_iam_role_policy" "datapipeline_emr_resource_policy" {
         "glue:*Partition*"
       ],
       "Resource": [
-        "arn:aws:glue:${data.aws_region.current.account_id}:${data.aws_caller_identity.current.account_id}:catalog",
-        "arn:aws:glue:${data.aws_region.current.account_id}:${data.aws_caller_identity.current.account_id}:table/*",
-        "arn:aws:glue:${data.aws_region.current.account_id}:${data.aws_caller_identity.current.account_id}:database/*",
-        "arn:aws:glue:${data.aws_region.current.account_id}:${data.aws_caller_identity.current.account_id}:userDefinedFuntion/*"
+        "arn:aws:glue:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:catalog",
+        "arn:aws:glue:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:table/*",
+        "arn:aws:glue:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:database/*",
+        "arn:aws:glue:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:userDefinedFuntion/*"
       ]
     }
   ]
@@ -326,6 +326,6 @@ EOF
 # Policy for datapipeline's emr to allow action to EC2 and S3
 resource "aws_iam_role_policy_attachment" "datapipeline_emr_resource_attachment1" {
   role       = aws_iam_role.datapipeline_emr_resource_role.name
-  policy_arn = data.aws_iam_policy.AWSDataPipAmazonEC2RoleforDataPipelineRoleelineRole.policy
+  policy_arn = data.aws_iam_policy.AmazonEC2RoleforDataPipelineRole.policy
 }
 
