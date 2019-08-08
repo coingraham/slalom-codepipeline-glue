@@ -24,6 +24,11 @@ provider "aws" {
 #This Data Source will read in the current AWS Region
 data "aws_region" "current" {}
 
+# Use the standard s3 kms key
+data "aws_kms_alias" "s3kmskey" {
+  name = "alias/aws/s3"
+}
+
 # Use the existing code commit repo
 data "aws_codecommit_repository" "glue_repo" {
   repository_name = "codepipeline"
@@ -93,24 +98,28 @@ resource "aws_iam_role_policy" "codepipeline_policy" {
       ]
     },
     {
-        "Action": [
-            "codecommit:CancelUploadArchive",
-            "codecommit:GetBranch",
-            "codecommit:GetCommit",
-            "codecommit:GetUploadArchiveStatus",
-            "codecommit:UploadArchive"
-        ],
-        "Resource": "${aws_codecommit_repository.this.arn}",
-        "Effect": "Allow"
+      "Action": [
+        "codecommit:CancelUploadArchive",
+        "codecommit:GetBranch",
+        "codecommit:GetCommit",
+        "codecommit:GetUploadArchiveStatus",
+        "codecommit:UploadArchive"
+      ],
+      "Resource": "${aws_codecommit_repository.this.arn}",
+      "Effect": "Allow"
+    },
+    {
+      "Action": [
+        "codebuild:StartBuild",
+        "codebuild:BatchGetBuilds"
+      ],
+      "Resource": "*",
+      "Effect": "Allow"
     }
   ]
 }
 EOF
 }
-
-# data "aws_kms_alias" "s3kmskey" {
-#   name = "alias/myKmsKey"
-# }
 
 # CodePipeline job to pull from codecommit and push to S3 for Glue and DataPipeline to consume
 resource "aws_codepipeline" "codepipeline_glue_dp_jobs" {
@@ -121,10 +130,10 @@ resource "aws_codepipeline" "codepipeline_glue_dp_jobs" {
     location = aws_s3_bucket.codepipeline_bucket.id
     type     = "S3"
 
-  #   encryption_key {
-  #     id   = "${data.aws_kms_alias.s3kmskey.arn}"
-  #     type = "KMS"
-  #   }
+    encryption_key {
+      id   = "${data.aws_kms_alias.s3kmskey.arn}"
+      type = "KMS"
+    }
   }
 
   stage {
@@ -146,6 +155,24 @@ resource "aws_codepipeline" "codepipeline_glue_dp_jobs" {
   }
 
   stage {
+    name = "Build"
+
+    action {
+      name            = "Build"
+      category        = "Build"
+      owner           = "AWS"
+      provider        = "CodeBuild"
+      input_artifacts = ["source_output"]
+      output_artifacts = ["build_output"]
+      version         = "1"
+
+      configuration = {
+        ProjectName = "trim"
+      }
+    }
+  }
+
+  stage {
     name = "Deploy"
 
     action {
@@ -153,7 +180,7 @@ resource "aws_codepipeline" "codepipeline_glue_dp_jobs" {
       category        = "Deploy"
       owner           = "AWS"
       provider        = "S3"
-      input_artifacts = ["source_output"]
+      input_artifacts = ["build_output"]
       version         = "1"
 
       configuration = {
@@ -195,7 +222,7 @@ resource "aws_iam_role_policy" "glue_job_policy" {
 
 # Sample Glue job with S3 reference
 resource "aws_glue_job" "this" {
-  name     = "example"
+  name     = "this"
   role_arn = "${aws_iam_role.glue_role.arn}"
   max_capacity = 2
 
@@ -204,7 +231,13 @@ resource "aws_glue_job" "this" {
   }
 }
 
-# Sample Datapipeline with S3 reference
-resource "aws_datapipeline_pipeline" "this" {
-    name        = "aws_datapipeline_job"
+# S3 Bucket for EMR Job logging.
+resource "aws_s3_bucket" "emr_job_logging_bucket" {
+  bucket = "${var.project}-${var.environment}-emr-${var.region}"
+  acl    = "private"
 }
+
+# # Sample Datapipeline with S3 reference
+# resource "aws_datapipeline_pipeline" "this" {
+#     name        = "aws_datapipeline_job"
+# }
