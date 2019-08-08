@@ -24,24 +24,30 @@ provider "aws" {
 #This Data Source will read in the current AWS Region
 data "aws_region" "current" {}
 
+# This Data source will provide the account number if needed
+data "aws_caller_identity" "current" {}
+
 # Use the standard s3 kms key
 data "aws_kms_alias" "s3kmskey" {
   name = "alias/aws/s3"
 }
 
-# Use the existing code commit repo
-data "aws_codecommit_repository" "glue_repo" {
-  repository_name = "codepipeline"
-}
-
-# Use the existing codepipeline role
-data "aws_iam_role" "CodePipelineGlue" {
-  name = "AWSCodePipelineServiceRole-us-east-1-GlueDeploy"
-}
-
 data "aws_iam_policy" "AWSGlueMasterPolicy" {
   arn = "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
 }
+
+data "aws_iam_policy" "AWSDataPipelineRole" {
+  arn = "arn:aws:iam::aws:policy/service-role/AWSDataPipelineRole"
+}
+
+data "aws_iam_policy" "AWSGlueServiceRole" {
+  arn = "arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole"
+}
+
+data "aws_iam_policy" "AmazonEC2RoleforDataPipelineRole" {
+  arn = "arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforDataPipelineRole"
+}
+
 ############
 # Resources
 ############
@@ -80,7 +86,7 @@ EOF
 
 # Policy for codepipeline to allow action to S3 and pull from codecommit
 resource "aws_iam_role_policy" "codepipeline_policy" {
-  name = "codepipeline_policy"
+  name = "${var.project}-${var.environment}-codepipeline-policy"
   role = "${aws_iam_role.codepipeline_role.id}"
 
   policy = <<EOF
@@ -123,7 +129,7 @@ EOF
 
 # CodePipeline job to pull from codecommit and push to S3 for Glue and DataPipeline to consume
 resource "aws_codepipeline" "codepipeline_glue_dp_jobs" {
-  name     = "glue_jobs_datapipeline_deployment_pipeline"
+  name     = "${var.project}-${var.environment}-code-deployment"
   role_arn = aws_iam_role.codepipeline_role.arn
 
   artifact_store {
@@ -232,13 +238,94 @@ resource "aws_glue_job" "this" {
   }
 }
 
-# S3 Bucket for EMR Job logging.
-resource "aws_s3_bucket" "emr_job_logging_bucket" {
-  bucket = "${var.project}-${var.environment}-emr-${var.region}"
-  acl    = "private"
+# Role for datapipeline's emr to assume
+resource "aws_iam_role" "datapipeline_emr_role" {
+  name = "${var.project}-${var.environment}-datapipeline-emr-role"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "elasticmapreduce.amazonaws.com",
+          "datapipeline.amazonaws.com"
+        ]
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+EOF
 }
 
-# # Sample Datapipeline with S3 reference
-# resource "aws_datapipeline_pipeline" "this" {
-#     name        = "aws_datapipeline_job"
-# }
+# Policy for datapipeline's emr to allow action to EC2 and S3
+resource "aws_iam_role_policy_attachment" "datapipeline_emr_attachment1" {
+  role       = aws_iam_role.datapipeline_emr_role.name
+  policy_arn = data.aws_iam_policy.AWSDataPipelineRole.policy
+}
+
+# Policy for datapipeline's emr to allow action to Glue
+resource "aws_iam_role_policy_attachment" "datapipeline_emr_attachment2" {
+  role       = aws_iam_role.datapipeline_emr_role.name
+  policy_arn = data.aws_iam_policy.AWSGlueServiceRole.policy
+}
+
+# Role for datapipeline's emr resource to assume
+resource "aws_iam_role" "datapipeline_emr_resource_role" {
+  name = "${var.project}-${var.environment}-datapipeline-emr-resource-role"
+
+  assume_role_policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
+          "ec2.amazonaws.com"
+        ]
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+EOF
+}
+
+# Policy for datapipeline's emr resource to allow Glue access
+resource "aws_iam_role_policy" "datapipeline_emr_resource_policy" {
+  name = "${var.project}-${var.environment}-datapipeline-emr-resource-policy"
+  role = "${aws_iam_role.datapipeline_emr_resource_role.id}"
+
+  policy = <<EOF
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect":"Allow",
+      "Action": [
+        "glue:*Database*",
+        "glue:*Table*",
+        "glue:*Partition*"
+      ],
+      "Resource": [
+        "arn:aws:glue:${data.aws_region.current.account_id}:${data.aws_caller_identity.current.account_id}:catalog",
+        "arn:aws:glue:${data.aws_region.current.account_id}:${data.aws_caller_identity.current.account_id}:table/*",
+        "arn:aws:glue:${data.aws_region.current.account_id}:${data.aws_caller_identity.current.account_id}:database/*",
+        "arn:aws:glue:${data.aws_region.current.account_id}:${data.aws_caller_identity.current.account_id}:userDefinedFuntion/*"
+      ]
+    }
+  ]
+}
+EOF
+}
+
+# Policy for datapipeline's emr to allow action to EC2 and S3
+resource "aws_iam_role_policy_attachment" "datapipeline_emr_resource_attachment1" {
+  role       = aws_iam_role.datapipeline_emr_resource_role.name
+  policy_arn = data.aws_iam_policy.AWSDataPipAmazonEC2RoleforDataPipelineRoleelineRole.policy
+}
+

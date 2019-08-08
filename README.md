@@ -108,3 +108,8 @@ This will run Terraform Apply and source a tfvars file for the answers
 
 This will run Terraform Destroy and source a tfvars file for the answers
 `terraform destroy -var-file="environments/prod-us-east-1.tfvars"`
+
+### Running Terraform with Make
+
+You can additionally utilize the makefile to run the terraform with make and have it automatically handle the init, workspace, and var file.
+`AWS_PROFILE=myprofile ENV=nonprod REGION=us-east-1 make plan`
