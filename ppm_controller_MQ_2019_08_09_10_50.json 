@@ -138,6 +138,78 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity3}"
         },
         {
+            "id": "ShellActivityId_#{my_shell_activity4}",
+            "name": "#{my_shell_activity4}",
+            "type": "ShellCommandActivity",
+            "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_controller_scripts}/#{my_systems}/#{my_shell_activity4}.py",
+                "#{my_wrk_ppm_general}",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_s3_base_path}/Controller/Logs/stdout/#{my_shell_activity4}",
+            "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity4}"
+        },
+        {
+            "id": "ShellActivityId_#{my_shell_activity5}",
+            "name": "#{my_shell_activity5}",
+            "type": "ShellCommandActivity",
+            "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_controller_scripts}/#{my_systems}/#{my_shell_activity5}.py",
+                "#{my_wrk_ppm_general}",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_s3_base_path}/Controller/Logs/stdout/#{my_shell_activity5}",
+            "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity5}"
+        },
+        {
+            "id": "ShellActivityId_#{my_shell_activity6}",
+            "name": "#{my_shell_activity6}",
+            "type": "ShellCommandActivity",
+            "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_controller_scripts}/#{my_systems}/#{my_shell_activity6}.py",
+                "#{my_wrk_ppm_general}",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_s3_base_path}/Controller/Logs/stdout/#{my_shell_activity6}",
+            "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity6}"
+        },
+        {
+            "id": "ShellActivityId_#{my_shell_activity7}",
+            "name": "#{my_shell_activity7}",
+            "type": "ShellCommandActivity",
+            "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_controller_scripts}/#{my_systems}/#{my_shell_activity7}.py",
+                "#{my_wrk_ppm_general}",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_s3_base_path}/Controller/Logs/stdout/#{my_shell_activity7}",
+            "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity7}"
+        },
+        {
             "id": "Default",
             "name": "Default",
             "scheduleType": "ONDEMAND",
@@ -239,6 +311,22 @@
         {
             "id": "my_shell_activity3",
             "type": "string"
+        },
+        {
+            "id": "my_shell_activity4",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity5",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity6",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity7",
+            "type": "string"
         }
     ],
     "values": {
@@ -262,8 +350,12 @@
         "my_emr_region": "us-east-1",
         "my_emr_role": "PPM_DataPipelineRole",
         "my_emr_resource_role": "PPM_DataPipelineResourceRole",
-        "my_shell_activity1": "wkf_pe_mstr_material_ods_stgm_material_location",
-        "my_shell_activity2": "wkf_pe_tran_invoice_header_ods_stgt_invoice_header",
-        "my_shell_activity3": "wkf_pe_mstr_material_ods_stgm_material"
+        "my_shell_activity1": "wkf_mq_monthly_sales_ods_stge_material",
+        "my_shell_activity2": "wkf_mq_monthly_sales_ods_stgm_customer",
+        "my_shell_activity3": "wkf_mq_monthly_sales_ods_stgm_material",
+        "my_shell_activity4": "wkf_mq_monthly_sales_ods_stgm_material_location",
+        "my_shell_activity5": "wkf_mq_monthly_sales_ods_stgt_invoice_header",
+        "my_shell_activity6": "wkf_mq_monthly_sales_ods_stgt_invoice_line",
+        "my_shell_activity7": "wkf_mq_mstr_material_uom_ods_stgc_material_uom"
     }
 }
