@@ -624,6 +624,186 @@
             "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity30}"
         },
         {
+            "id": "ShellActivityId_My_Shell_Activity_31",
+            "name": "My Shell Activity 31",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity31}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity31}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity31}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_32",
+            "name": "My Shell Activity 32",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity32}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity32}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity32}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_33",
+            "name": "My Shell Activity 33",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity33}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity33}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity33}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_34",
+            "name": "My Shell Activity 34",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity34}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity34}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity34}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_35",
+            "name": "My Shell Activity 35",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity35}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity35}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity35}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_36",
+            "name": "My Shell Activity 36",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity36}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity36}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity36}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_37",
+            "name": "My Shell Activity 37",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity37}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity37}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity37}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_38",
+            "name": "My Shell Activity 38",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity38}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity38}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity38}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_39",
+            "name": "My Shell Activity 39",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity39}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity39}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity39}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_40",
+            "name": "My Shell Activity 40",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity40}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity40}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity40}"
+        },
+        {
             "id": "Default",
             "name": "Default",
             "scheduleType": "ONDEMAND",
@@ -817,6 +997,46 @@
         {
             "id": "my_shell_activity30",
             "type": "string"
+        },
+        {
+            "id": "my_shell_activity31",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity32",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity33",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity34",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity35",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity36",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity37",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity38",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity39",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity40",
+            "type": "string"
         }
     ],
     "values": {
@@ -824,7 +1044,7 @@
         "my_system_bucket": "wrk-system-ppm-#{my_environment}",
         "my_ingest_bucket": "wrk-ingest-ppm-#{my_environment}",
         "my_datalake_bucket": "wrk-datalake-ppm-#{my_environment}",
-        "my_systems": "BP",
+        "my_systems": "MDMS",
         "my_emr_subnet_id": "subnet-6b4b2f36",
         "my_emr_master_security_group_id": "sg-096205745f33db931",
         "my_emr_slave_security_group_id": "sg-0a82b9f5780744421",
@@ -836,35 +1056,45 @@
         "my_emr_region": "us-east-1",
         "my_emr_role": "PPM_DataPipelineRole",
         "my_emr_resource_role": "PPM_DataPipelineResourceRole",
-        "my_shell_activity1": "wkf_bp_diem_iiml01_ods_stge_material",
-        "my_shell_activity2": "wkf_bp_fco_tms_step2_ods_stgt_invoice_header",
-        "my_shell_activity3": "wkf_bp_iic_iiml01_ods_stgm_material",
-        "my_shell_activity4": "wkf_bp_kpicstdivy_ods_stge_material_location",
-        "my_shell_activity5": "wkf_bp_kpisls_bp_tran_invoice_header_step2_ods_stgt_invoice_line",
-        "my_shell_activity6": "wkf_bp_kpisls_ods_stge_material",
-        "my_shell_activity7": "wkf_bp_kpisls_ods_stgm_material",
-        "my_shell_activity8": "wkf_bp_kpisls_ods_stgt_pre_invoice_line",
-        "my_shell_activity9": "wkf_bp_kpisls_step2_ods_stgm_material_location",
-        "my_shell_activity10": "wkf_bp_kpisls_step3_ods_stgm_material_location",
-        "my_shell_activity11": "wkf_bp_kpisls_step5_ods_stgm_material",
-        "my_shell_activity12": "wkf_bp_mstr_customer_ods_stgm_customer",
-        "my_shell_activity13": "wkf_bp_mstr_material_location_ods_stgm_material_location",
-        "my_shell_activity14": "wkf_bp_mstr_material_ods_stge_customer",
-        "my_shell_activity15": "wkf_bp_mstr_material_ods_stge_material",
-        "my_shell_activity16": "wkf_bp_mstr_material_ods_stgm_material",
-        "my_shell_activity17": "wkf_bp_mstr_material_uom_ods_stgc_material_uom",
-        "my_shell_activity18": "wkf_bp_occalc_imml01_ods_stge_material",
-        "my_shell_activity19": "wkf_bp_sirf1_ods_stgm_material",
-        "my_shell_activity20": "wkf_bp_stgt_shipment_vw_fco_tms_extract_ods_stge_invoice_line",
-        "my_shell_activity21": "wkf_bp_stgt_shipment_vw_fco_tms_extract_ods_stgt_invoice_line",
-        "my_shell_activity22": "wkf_bp_stgt_shipment_vw_ods_stge_invoice_line",
-        "my_shell_activity23": "wkf_bp_stgt_shipment_vw_ods_stgt_invoice_line",
-        "my_shell_activity24": "wkf_bp_tran_invoice_header_ods_stgt_invoice_header",
-        "my_shell_activity25": "wkf_bp_tran_invoice_line_ods_stgt_invoice_line",
-        "my_shell_activity26": "wkf_bp_tran_invoice_line_step1_kpisls_ods_stgt_invoice_line",
-        "my_shell_activity27": "wkf_bp_tran_invoice_line_step1_ods_stge_invoice_line",
-        "my_shell_activity28": "wkf_bp_zccm02_iiml01_ods_stgm_material",
-        "my_shell_activity29": "wkf_bp_zccm02_ods_stge_material",
-        "my_shell_activity30": "wkf_bp_zccm02_step4_ods_stgm_material_location"
+        "my_shell_activity1": "mdms_curate_acct_type",
+        "my_shell_activity2": "mdms_curate_balance_type",
+        "my_shell_activity3": "mdms_curate_business_segment",
+        "my_shell_activity4": "mdms_curate_business_unit",
+        "my_shell_activity5": "mdms_curate_cc_acct",
+        "my_shell_activity6": "mdms_curate_cc_acct_grp",
+        "my_shell_activity7": "mdms_curate_cc_acct_grp_rpt",
+        "my_shell_activity8": "mdms_curate_cm_elim_loc",
+        "my_shell_activity9": "mdms_curate_consolidation_company",
+        "my_shell_activity10": "mdms_curate_consolidation_type",
+        "my_shell_activity11": "mdms_curate_contract_mfg_loc",
+        "my_shell_activity12": "mdms_curate_conv_currency_exch",
+        "my_shell_activity13": "mdms_curate_conv_uom",
+        "my_shell_activity14": "mdms_curate_cost_center_type",
+        "my_shell_activity15": "mdms_curate_country",
+        "my_shell_activity16": "mdms_curate_country_market_type",
+        "my_shell_activity17": "mdms_curate_currency",
+        "my_shell_activity18": "mdms_curate_currency_exchange_type",
+        "my_shell_activity19": "mdms_curate_customer_type",
+        "my_shell_activity20": "mdms_curate_duration",
+        "my_shell_activity21": "mdms_curate_ext_attribute_type",
+        "my_shell_activity22": "mdms_curate_functional_area",
+        "my_shell_activity23": "mdms_curate_functional_area_grp",
+        "my_shell_activity24": "mdms_curate_functional_area_grp_rpt",
+        "my_shell_activity25": "mdms_curate_geo_area",
+        "my_shell_activity26": "mdms_curate_geo_region",
+        "my_shell_activity27": "mdms_curate_geo_sub_region",
+        "my_shell_activity28": "mdms_curate_geo_territory",
+        "my_shell_activity29": "mdms_curate_gl_acct",
+        "my_shell_activity30": "mdms_curate_gl_acct_alloc",
+        "my_shell_activity31": "mdms_curate_gl_acct_grp",
+        "my_shell_activity32": "mdms_curate_gl_acct_grp_rpt",
+        "my_shell_activity33": "mdms_curate_inventory_type",
+        "my_shell_activity34": "mdms_curate_invoice_type",
+        "my_shell_activity35": "mdms_curate_key_product_group",
+        "my_shell_activity36": "mdms_curate_legal_entity",
+        "my_shell_activity37": "mdms_curate_loc_platform",
+        "my_shell_activity38": "mdms_curate_loc_region",
+        "my_shell_activity39": "mdms_curate_loc_sub_platform",
+        "my_shell_activity40": "mdms_curate_location"
     }
 }

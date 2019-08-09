@@ -73,7 +73,7 @@
             ],
             "coreInstanceCount": "#{my_emr_instance_core_count}",
             "releaseLabel": "emr-5.19.0",
-            "terminateAfter": "#{my_emr_terminate_after}",
+            "terminateAfter": "#{my_emr_terminate_after} Hours",
             "hadoopSchedulerType": "PARALLEL_FAIR_SCHEDULING",
             "bootstrapAction": "#{my_bootstrap_script}",
             "keyPair": "#{my_s3_base_path}1",
@@ -84,8 +84,8 @@
             ]
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity1}",
-            "name": "#{my_shell_activity1}",
+            "id": "ShellActivityId_My_Shell_Activity_1",
+            "name": "My Shell Activity 1",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -102,8 +102,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity1}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity2}",
-            "name": "#{my_shell_activity2}",
+            "id": "ShellActivityId_My_Shell_Activity_2",
+            "name": "My Shell Activity 2",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -120,8 +120,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity2}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity3}",
-            "name": "#{my_shell_activity3}",
+            "id": "ShellActivityId_My_Shell_Activity_3",
+            "name": "My Shell Activity 3",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -138,8 +138,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity3}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity4}",
-            "name": "#{my_shell_activity4}",
+            "id": "ShellActivityId_My_Shell_Activity_4",
+            "name": "My Shell Activity 4",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -156,8 +156,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity4}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity5}",
-            "name": "#{my_shell_activity5}",
+            "id": "ShellActivityId_My_Shell_Activity_5",
+            "name": "My Shell Activity 5",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -174,8 +174,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity5}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity6}",
-            "name": "#{my_shell_activity6}",
+            "id": "ShellActivityId_My_Shell_Activity_6",
+            "name": "My Shell Activity 6",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -192,8 +192,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity6}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity7}",
-            "name": "#{my_shell_activity7}",
+            "id": "ShellActivityId_My_Shell_Activity_7",
+            "name": "My Shell Activity 7",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -210,8 +210,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity7}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity8}",
-            "name": "#{my_shell_activity8}",
+            "id": "ShellActivityId_My_Shell_Activity_8",
+            "name": "My Shell Activity 8",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -228,8 +228,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity8}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity9}",
-            "name": "#{my_shell_activity9}",
+            "id": "ShellActivityId_My_Shell_Activity_9",
+            "name": "My Shell Activity 9",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -246,8 +246,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity9}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity10}",
-            "name": "#{my_shell_activity10}",
+            "id": "ShellActivityId_My_Shell_Activity_10",
+            "name": "My Shell Activity 10",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -264,8 +264,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity10}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity11}",
-            "name": "#{my_shell_activity11}",
+            "id": "ShellActivityId_My_Shell_Activity_11",
+            "name": "My Shell Activity 11",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -282,8 +282,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity11}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity12}",
-            "name": "#{my_shell_activity12}",
+            "id": "ShellActivityId_My_Shell_Activity_12",
+            "name": "My Shell Activity 12",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -300,8 +300,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity12}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity13}",
-            "name": "#{my_shell_activity13}",
+            "id": "ShellActivityId_My_Shell_Activity_13",
+            "name": "My Shell Activity 13",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -318,8 +318,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity13}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity14}",
-            "name": "#{my_shell_activity14}",
+            "id": "ShellActivityId_My_Shell_Activity_14",
+            "name": "My Shell Activity 14",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -336,8 +336,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity14}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity15}",
-            "name": "#{my_shell_activity15}",
+            "id": "ShellActivityId_My_Shell_Activity_15",
+            "name": "My Shell Activity 15",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -354,8 +354,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity15}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity16}",
-            "name": "#{my_shell_activity16}",
+            "id": "ShellActivityId_My_Shell_Activity_16",
+            "name": "My Shell Activity 16",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -372,8 +372,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity16}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity17}",
-            "name": "#{my_shell_activity17}",
+            "id": "ShellActivityId_My_Shell_Activity_17",
+            "name": "My Shell Activity 17",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -390,8 +390,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity17}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity18}",
-            "name": "#{my_shell_activity18}",
+            "id": "ShellActivityId_My_Shell_Activity_18",
+            "name": "My Shell Activity 18",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -408,8 +408,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity18}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity19}",
-            "name": "#{my_shell_activity19}",
+            "id": "ShellActivityId_My_Shell_Activity_19",
+            "name": "My Shell Activity 19",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -426,8 +426,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity19}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity20}",
-            "name": "#{my_shell_activity20}",
+            "id": "ShellActivityId_My_Shell_Activity_20",
+            "name": "My Shell Activity 20",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -444,8 +444,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity20}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity21}",
-            "name": "#{my_shell_activity21}",
+            "id": "ShellActivityId_My_Shell_Activity_21",
+            "name": "My Shell Activity 21",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -462,8 +462,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity21}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity22}",
-            "name": "#{my_shell_activity22}",
+            "id": "ShellActivityId_My_Shell_Activity_22",
+            "name": "My Shell Activity 22",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -480,8 +480,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity22}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity23}",
-            "name": "#{my_shell_activity23}",
+            "id": "ShellActivityId_My_Shell_Activity_23",
+            "name": "My Shell Activity 23",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -498,8 +498,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity23}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity24}",
-            "name": "#{my_shell_activity24}",
+            "id": "ShellActivityId_My_Shell_Activity_24",
+            "name": "My Shell Activity 24",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -516,8 +516,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity24}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity25}",
-            "name": "#{my_shell_activity25}",
+            "id": "ShellActivityId_My_Shell_Activity_25",
+            "name": "My Shell Activity 25",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -534,8 +534,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity25}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity26}",
-            "name": "#{my_shell_activity26}",
+            "id": "ShellActivityId_My_Shell_Activity_26",
+            "name": "My Shell Activity 26",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -552,8 +552,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity26}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity27}",
-            "name": "#{my_shell_activity27}",
+            "id": "ShellActivityId_My_Shell_Activity_27",
+            "name": "My Shell Activity 27",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -570,8 +570,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity27}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity28}",
-            "name": "#{my_shell_activity28}",
+            "id": "ShellActivityId_My_Shell_Activity_28",
+            "name": "My Shell Activity 28",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -588,8 +588,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity28}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity29}",
-            "name": "#{my_shell_activity29}",
+            "id": "ShellActivityId_My_Shell_Activity_29",
+            "name": "My Shell Activity 29",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -606,8 +606,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity29}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity30}",
-            "name": "#{my_shell_activity30}",
+            "id": "ShellActivityId_My_Shell_Activity_30",
+            "name": "My Shell Activity 30",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -624,8 +624,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity30}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity31}",
-            "name": "#{my_shell_activity31}",
+            "id": "ShellActivityId_My_Shell_Activity_31",
+            "name": "My Shell Activity 31",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -642,8 +642,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity31}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity32}",
-            "name": "#{my_shell_activity32}",
+            "id": "ShellActivityId_My_Shell_Activity_32",
+            "name": "My Shell Activity 32",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -660,8 +660,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity32}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity33}",
-            "name": "#{my_shell_activity33}",
+            "id": "ShellActivityId_My_Shell_Activity_33",
+            "name": "My Shell Activity 33",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -678,8 +678,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity33}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity34}",
-            "name": "#{my_shell_activity34}",
+            "id": "ShellActivityId_My_Shell_Activity_34",
+            "name": "My Shell Activity 34",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -696,8 +696,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity34}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity35}",
-            "name": "#{my_shell_activity35}",
+            "id": "ShellActivityId_My_Shell_Activity_35",
+            "name": "My Shell Activity 35",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -714,8 +714,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity35}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity36}",
-            "name": "#{my_shell_activity36}",
+            "id": "ShellActivityId_My_Shell_Activity_36",
+            "name": "My Shell Activity 36",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -732,8 +732,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity36}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity37}",
-            "name": "#{my_shell_activity37}",
+            "id": "ShellActivityId_My_Shell_Activity_37",
+            "name": "My Shell Activity 37",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -750,8 +750,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity37}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity38}",
-            "name": "#{my_shell_activity38}",
+            "id": "ShellActivityId_My_Shell_Activity_38",
+            "name": "My Shell Activity 38",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -768,8 +768,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity38}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity39}",
-            "name": "#{my_shell_activity39}",
+            "id": "ShellActivityId_My_Shell_Activity_39",
+            "name": "My Shell Activity 39",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -786,8 +786,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity39}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity40}",
-            "name": "#{my_shell_activity40}",
+            "id": "ShellActivityId_My_Shell_Activity_40",
+            "name": "My Shell Activity 40",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -804,8 +804,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity40}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity41}",
-            "name": "#{my_shell_activity41}",
+            "id": "ShellActivityId_My_Shell_Activity_41",
+            "name": "My Shell Activity 41",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -822,8 +822,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity41}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity42}",
-            "name": "#{my_shell_activity42}",
+            "id": "ShellActivityId_My_Shell_Activity_42",
+            "name": "My Shell Activity 42",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -840,8 +840,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity42}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity43}",
-            "name": "#{my_shell_activity43}",
+            "id": "ShellActivityId_My_Shell_Activity_43",
+            "name": "My Shell Activity 43",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -858,8 +858,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity43}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity44}",
-            "name": "#{my_shell_activity44}",
+            "id": "ShellActivityId_My_Shell_Activity_44",
+            "name": "My Shell Activity 44",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -876,8 +876,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity44}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity45}",
-            "name": "#{my_shell_activity45}",
+            "id": "ShellActivityId_My_Shell_Activity_45",
+            "name": "My Shell Activity 45",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -894,8 +894,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity45}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity46}",
-            "name": "#{my_shell_activity46}",
+            "id": "ShellActivityId_My_Shell_Activity_46",
+            "name": "My Shell Activity 46",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -912,8 +912,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity46}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity47}",
-            "name": "#{my_shell_activity47}",
+            "id": "ShellActivityId_My_Shell_Activity_47",
+            "name": "My Shell Activity 47",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -930,8 +930,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity47}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity48}",
-            "name": "#{my_shell_activity48}",
+            "id": "ShellActivityId_My_Shell_Activity_48",
+            "name": "My Shell Activity 48",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -948,8 +948,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity48}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity49}",
-            "name": "#{my_shell_activity49}",
+            "id": "ShellActivityId_My_Shell_Activity_49",
+            "name": "My Shell Activity 49",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -966,8 +966,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity49}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity50}",
-            "name": "#{my_shell_activity50}",
+            "id": "ShellActivityId_My_Shell_Activity_50",
+            "name": "My Shell Activity 50",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -984,8 +984,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity50}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity51}",
-            "name": "#{my_shell_activity51}",
+            "id": "ShellActivityId_My_Shell_Activity_51",
+            "name": "My Shell Activity 51",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1002,8 +1002,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity51}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity52}",
-            "name": "#{my_shell_activity52}",
+            "id": "ShellActivityId_My_Shell_Activity_52",
+            "name": "My Shell Activity 52",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1020,8 +1020,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity52}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity53}",
-            "name": "#{my_shell_activity53}",
+            "id": "ShellActivityId_My_Shell_Activity_53",
+            "name": "My Shell Activity 53",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1038,8 +1038,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity53}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity54}",
-            "name": "#{my_shell_activity54}",
+            "id": "ShellActivityId_My_Shell_Activity_54",
+            "name": "My Shell Activity 54",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1056,8 +1056,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity54}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity55}",
-            "name": "#{my_shell_activity55}",
+            "id": "ShellActivityId_My_Shell_Activity_55",
+            "name": "My Shell Activity 55",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1074,8 +1074,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity55}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity56}",
-            "name": "#{my_shell_activity56}",
+            "id": "ShellActivityId_My_Shell_Activity_56",
+            "name": "My Shell Activity 56",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1092,8 +1092,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity56}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity57}",
-            "name": "#{my_shell_activity57}",
+            "id": "ShellActivityId_My_Shell_Activity_57",
+            "name": "My Shell Activity 57",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1110,8 +1110,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity57}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity58}",
-            "name": "#{my_shell_activity58}",
+            "id": "ShellActivityId_My_Shell_Activity_58",
+            "name": "My Shell Activity 58",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1128,8 +1128,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity58}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity59}",
-            "name": "#{my_shell_activity59}",
+            "id": "ShellActivityId_My_Shell_Activity_59",
+            "name": "My Shell Activity 59",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1146,8 +1146,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity59}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity60}",
-            "name": "#{my_shell_activity60}",
+            "id": "ShellActivityId_My_Shell_Activity_60",
+            "name": "My Shell Activity 60",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1164,8 +1164,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity60}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity61}",
-            "name": "#{my_shell_activity61}",
+            "id": "ShellActivityId_My_Shell_Activity_61",
+            "name": "My Shell Activity 61",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1182,8 +1182,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity61}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity62}",
-            "name": "#{my_shell_activity62}",
+            "id": "ShellActivityId_My_Shell_Activity_62",
+            "name": "My Shell Activity 62",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1200,8 +1200,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity62}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity63}",
-            "name": "#{my_shell_activity63}",
+            "id": "ShellActivityId_My_Shell_Activity_63",
+            "name": "My Shell Activity 63",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1218,8 +1218,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity63}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity64}",
-            "name": "#{my_shell_activity64}",
+            "id": "ShellActivityId_My_Shell_Activity_64",
+            "name": "My Shell Activity 64",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1236,8 +1236,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity64}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity65}",
-            "name": "#{my_shell_activity65}",
+            "id": "ShellActivityId_My_Shell_Activity_65",
+            "name": "My Shell Activity 65",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1254,8 +1254,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity65}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity66}",
-            "name": "#{my_shell_activity66}",
+            "id": "ShellActivityId_My_Shell_Activity_66",
+            "name": "My Shell Activity 66",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1272,8 +1272,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity66}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity67}",
-            "name": "#{my_shell_activity67}",
+            "id": "ShellActivityId_My_Shell_Activity_67",
+            "name": "My Shell Activity 67",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1290,8 +1290,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity67}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity68}",
-            "name": "#{my_shell_activity68}",
+            "id": "ShellActivityId_My_Shell_Activity_68",
+            "name": "My Shell Activity 68",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1308,8 +1308,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity68}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity69}",
-            "name": "#{my_shell_activity69}",
+            "id": "ShellActivityId_My_Shell_Activity_69",
+            "name": "My Shell Activity 69",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1326,8 +1326,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity69}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity70}",
-            "name": "#{my_shell_activity70}",
+            "id": "ShellActivityId_My_Shell_Activity_70",
+            "name": "My Shell Activity 70",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1344,8 +1344,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity70}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity71}",
-            "name": "#{my_shell_activity71}",
+            "id": "ShellActivityId_My_Shell_Activity_71",
+            "name": "My Shell Activity 71",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1362,8 +1362,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity71}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity72}",
-            "name": "#{my_shell_activity72}",
+            "id": "ShellActivityId_My_Shell_Activity_72",
+            "name": "My Shell Activity 72",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1380,8 +1380,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity72}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity73}",
-            "name": "#{my_shell_activity73}",
+            "id": "ShellActivityId_My_Shell_Activity_73",
+            "name": "My Shell Activity 73",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1398,8 +1398,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity73}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity74}",
-            "name": "#{my_shell_activity74}",
+            "id": "ShellActivityId_My_Shell_Activity_74",
+            "name": "My Shell Activity 74",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1416,8 +1416,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity74}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity75}",
-            "name": "#{my_shell_activity75}",
+            "id": "ShellActivityId_My_Shell_Activity_75",
+            "name": "My Shell Activity 75",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1434,8 +1434,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity75}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity76}",
-            "name": "#{my_shell_activity76}",
+            "id": "ShellActivityId_My_Shell_Activity_76",
+            "name": "My Shell Activity 76",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1452,8 +1452,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity76}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity77}",
-            "name": "#{my_shell_activity77}",
+            "id": "ShellActivityId_My_Shell_Activity_77",
+            "name": "My Shell Activity 77",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1470,8 +1470,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity77}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity78}",
-            "name": "#{my_shell_activity78}",
+            "id": "ShellActivityId_My_Shell_Activity_78",
+            "name": "My Shell Activity 78",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1488,8 +1488,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity78}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity79}",
-            "name": "#{my_shell_activity79}",
+            "id": "ShellActivityId_My_Shell_Activity_79",
+            "name": "My Shell Activity 79",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1506,8 +1506,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity79}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity80}",
-            "name": "#{my_shell_activity80}",
+            "id": "ShellActivityId_My_Shell_Activity_80",
+            "name": "My Shell Activity 80",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1524,8 +1524,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity80}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity81}",
-            "name": "#{my_shell_activity81}",
+            "id": "ShellActivityId_My_Shell_Activity_81",
+            "name": "My Shell Activity 81",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1542,8 +1542,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity81}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity82}",
-            "name": "#{my_shell_activity82}",
+            "id": "ShellActivityId_My_Shell_Activity_82",
+            "name": "My Shell Activity 82",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1560,8 +1560,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity82}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity83}",
-            "name": "#{my_shell_activity83}",
+            "id": "ShellActivityId_My_Shell_Activity_83",
+            "name": "My Shell Activity 83",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1578,8 +1578,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity83}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity84}",
-            "name": "#{my_shell_activity84}",
+            "id": "ShellActivityId_My_Shell_Activity_84",
+            "name": "My Shell Activity 84",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1596,8 +1596,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity84}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity85}",
-            "name": "#{my_shell_activity85}",
+            "id": "ShellActivityId_My_Shell_Activity_85",
+            "name": "My Shell Activity 85",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1614,8 +1614,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity85}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity86}",
-            "name": "#{my_shell_activity86}",
+            "id": "ShellActivityId_My_Shell_Activity_86",
+            "name": "My Shell Activity 86",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1632,8 +1632,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity86}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity87}",
-            "name": "#{my_shell_activity87}",
+            "id": "ShellActivityId_My_Shell_Activity_87",
+            "name": "My Shell Activity 87",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1650,8 +1650,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity87}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity88}",
-            "name": "#{my_shell_activity88}",
+            "id": "ShellActivityId_My_Shell_Activity_88",
+            "name": "My Shell Activity 88",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1668,8 +1668,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity88}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity89}",
-            "name": "#{my_shell_activity89}",
+            "id": "ShellActivityId_My_Shell_Activity_89",
+            "name": "My Shell Activity 89",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1686,8 +1686,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity89}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity90}",
-            "name": "#{my_shell_activity90}",
+            "id": "ShellActivityId_My_Shell_Activity_90",
+            "name": "My Shell Activity 90",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1704,8 +1704,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity90}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity91}",
-            "name": "#{my_shell_activity91}",
+            "id": "ShellActivityId_My_Shell_Activity_91",
+            "name": "My Shell Activity 91",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1722,8 +1722,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity91}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity92}",
-            "name": "#{my_shell_activity92}",
+            "id": "ShellActivityId_My_Shell_Activity_92",
+            "name": "My Shell Activity 92",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1740,8 +1740,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity92}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity93}",
-            "name": "#{my_shell_activity93}",
+            "id": "ShellActivityId_My_Shell_Activity_93",
+            "name": "My Shell Activity 93",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1758,8 +1758,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity93}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity94}",
-            "name": "#{my_shell_activity94}",
+            "id": "ShellActivityId_My_Shell_Activity_94",
+            "name": "My Shell Activity 94",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1776,8 +1776,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity94}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity95}",
-            "name": "#{my_shell_activity95}",
+            "id": "ShellActivityId_My_Shell_Activity_95",
+            "name": "My Shell Activity 95",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1794,8 +1794,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity95}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity96}",
-            "name": "#{my_shell_activity96}",
+            "id": "ShellActivityId_My_Shell_Activity_96",
+            "name": "My Shell Activity 96",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1812,8 +1812,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity96}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity97}",
-            "name": "#{my_shell_activity97}",
+            "id": "ShellActivityId_My_Shell_Activity_97",
+            "name": "My Shell Activity 97",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1830,8 +1830,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity97}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity98}",
-            "name": "#{my_shell_activity98}",
+            "id": "ShellActivityId_My_Shell_Activity_98",
+            "name": "My Shell Activity 98",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1848,8 +1848,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity98}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity99}",
-            "name": "#{my_shell_activity99}",
+            "id": "ShellActivityId_My_Shell_Activity_99",
+            "name": "My Shell Activity 99",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1866,8 +1866,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity99}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity100}",
-            "name": "#{my_shell_activity100}",
+            "id": "ShellActivityId_My_Shell_Activity_100",
+            "name": "My Shell Activity 100",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1884,8 +1884,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity100}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity101}",
-            "name": "#{my_shell_activity101}",
+            "id": "ShellActivityId_My_Shell_Activity_101",
+            "name": "My Shell Activity 101",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1902,8 +1902,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity101}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity102}",
-            "name": "#{my_shell_activity102}",
+            "id": "ShellActivityId_My_Shell_Activity_102",
+            "name": "My Shell Activity 102",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1920,8 +1920,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity102}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity103}",
-            "name": "#{my_shell_activity103}",
+            "id": "ShellActivityId_My_Shell_Activity_103",
+            "name": "My Shell Activity 103",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1938,8 +1938,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity103}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity104}",
-            "name": "#{my_shell_activity104}",
+            "id": "ShellActivityId_My_Shell_Activity_104",
+            "name": "My Shell Activity 104",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1956,8 +1956,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity104}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity105}",
-            "name": "#{my_shell_activity105}",
+            "id": "ShellActivityId_My_Shell_Activity_105",
+            "name": "My Shell Activity 105",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1974,8 +1974,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity105}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity106}",
-            "name": "#{my_shell_activity106}",
+            "id": "ShellActivityId_My_Shell_Activity_106",
+            "name": "My Shell Activity 106",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -1992,8 +1992,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity106}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity107}",
-            "name": "#{my_shell_activity107}",
+            "id": "ShellActivityId_My_Shell_Activity_107",
+            "name": "My Shell Activity 107",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2010,8 +2010,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity107}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity108}",
-            "name": "#{my_shell_activity108}",
+            "id": "ShellActivityId_My_Shell_Activity_108",
+            "name": "My Shell Activity 108",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2028,8 +2028,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity108}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity109}",
-            "name": "#{my_shell_activity109}",
+            "id": "ShellActivityId_My_Shell_Activity_109",
+            "name": "My Shell Activity 109",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2046,8 +2046,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity109}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity110}",
-            "name": "#{my_shell_activity110}",
+            "id": "ShellActivityId_My_Shell_Activity_110",
+            "name": "My Shell Activity 110",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2064,8 +2064,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity110}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity111}",
-            "name": "#{my_shell_activity111}",
+            "id": "ShellActivityId_My_Shell_Activity_111",
+            "name": "My Shell Activity 111",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2082,8 +2082,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity111}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity112}",
-            "name": "#{my_shell_activity112}",
+            "id": "ShellActivityId_My_Shell_Activity_112",
+            "name": "My Shell Activity 112",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2100,8 +2100,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity112}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity113}",
-            "name": "#{my_shell_activity113}",
+            "id": "ShellActivityId_My_Shell_Activity_113",
+            "name": "My Shell Activity 113",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2118,8 +2118,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity113}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity114}",
-            "name": "#{my_shell_activity114}",
+            "id": "ShellActivityId_My_Shell_Activity_114",
+            "name": "My Shell Activity 114",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2136,8 +2136,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity114}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity115}",
-            "name": "#{my_shell_activity115}",
+            "id": "ShellActivityId_My_Shell_Activity_115",
+            "name": "My Shell Activity 115",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2154,8 +2154,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity115}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity116}",
-            "name": "#{my_shell_activity116}",
+            "id": "ShellActivityId_My_Shell_Activity_116",
+            "name": "My Shell Activity 116",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2172,8 +2172,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity116}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity117}",
-            "name": "#{my_shell_activity117}",
+            "id": "ShellActivityId_My_Shell_Activity_117",
+            "name": "My Shell Activity 117",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2190,8 +2190,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity117}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity118}",
-            "name": "#{my_shell_activity118}",
+            "id": "ShellActivityId_My_Shell_Activity_118",
+            "name": "My Shell Activity 118",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2208,8 +2208,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity118}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity119}",
-            "name": "#{my_shell_activity119}",
+            "id": "ShellActivityId_My_Shell_Activity_119",
+            "name": "My Shell Activity 119",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2226,8 +2226,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity119}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity120}",
-            "name": "#{my_shell_activity120}",
+            "id": "ShellActivityId_My_Shell_Activity_120",
+            "name": "My Shell Activity 120",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2244,8 +2244,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity120}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity121}",
-            "name": "#{my_shell_activity121}",
+            "id": "ShellActivityId_My_Shell_Activity_121",
+            "name": "My Shell Activity 121",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2262,8 +2262,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity121}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity122}",
-            "name": "#{my_shell_activity122}",
+            "id": "ShellActivityId_My_Shell_Activity_122",
+            "name": "My Shell Activity 122",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2280,8 +2280,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity122}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity123}",
-            "name": "#{my_shell_activity123}",
+            "id": "ShellActivityId_My_Shell_Activity_123",
+            "name": "My Shell Activity 123",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2298,8 +2298,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity123}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity124}",
-            "name": "#{my_shell_activity124}",
+            "id": "ShellActivityId_My_Shell_Activity_124",
+            "name": "My Shell Activity 124",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2316,8 +2316,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity124}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity125}",
-            "name": "#{my_shell_activity125}",
+            "id": "ShellActivityId_My_Shell_Activity_125",
+            "name": "My Shell Activity 125",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2334,8 +2334,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity125}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity126}",
-            "name": "#{my_shell_activity126}",
+            "id": "ShellActivityId_My_Shell_Activity_126",
+            "name": "My Shell Activity 126",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2352,8 +2352,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity126}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity127}",
-            "name": "#{my_shell_activity127}",
+            "id": "ShellActivityId_My_Shell_Activity_127",
+            "name": "My Shell Activity 127",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2370,8 +2370,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity127}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity128}",
-            "name": "#{my_shell_activity128}",
+            "id": "ShellActivityId_My_Shell_Activity_128",
+            "name": "My Shell Activity 128",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2388,8 +2388,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity128}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity129}",
-            "name": "#{my_shell_activity129}",
+            "id": "ShellActivityId_My_Shell_Activity_129",
+            "name": "My Shell Activity 129",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2406,8 +2406,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity129}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity130}",
-            "name": "#{my_shell_activity130}",
+            "id": "ShellActivityId_My_Shell_Activity_130",
+            "name": "My Shell Activity 130",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2424,8 +2424,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity130}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity131}",
-            "name": "#{my_shell_activity131}",
+            "id": "ShellActivityId_My_Shell_Activity_131",
+            "name": "My Shell Activity 131",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2442,8 +2442,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity131}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity132}",
-            "name": "#{my_shell_activity132}",
+            "id": "ShellActivityId_My_Shell_Activity_132",
+            "name": "My Shell Activity 132",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2460,8 +2460,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity132}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity133}",
-            "name": "#{my_shell_activity133}",
+            "id": "ShellActivityId_My_Shell_Activity_133",
+            "name": "My Shell Activity 133",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2478,8 +2478,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity133}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity134}",
-            "name": "#{my_shell_activity134}",
+            "id": "ShellActivityId_My_Shell_Activity_134",
+            "name": "My Shell Activity 134",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2496,8 +2496,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity134}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity135}",
-            "name": "#{my_shell_activity135}",
+            "id": "ShellActivityId_My_Shell_Activity_135",
+            "name": "My Shell Activity 135",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2514,8 +2514,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity135}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity136}",
-            "name": "#{my_shell_activity136}",
+            "id": "ShellActivityId_My_Shell_Activity_136",
+            "name": "My Shell Activity 136",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2532,8 +2532,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity136}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity137}",
-            "name": "#{my_shell_activity137}",
+            "id": "ShellActivityId_My_Shell_Activity_137",
+            "name": "My Shell Activity 137",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2550,8 +2550,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity137}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity138}",
-            "name": "#{my_shell_activity138}",
+            "id": "ShellActivityId_My_Shell_Activity_138",
+            "name": "My Shell Activity 138",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2568,8 +2568,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity138}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity139}",
-            "name": "#{my_shell_activity139}",
+            "id": "ShellActivityId_My_Shell_Activity_139",
+            "name": "My Shell Activity 139",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2586,8 +2586,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity139}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity140}",
-            "name": "#{my_shell_activity140}",
+            "id": "ShellActivityId_My_Shell_Activity_140",
+            "name": "My Shell Activity 140",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2604,8 +2604,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity140}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity141}",
-            "name": "#{my_shell_activity141}",
+            "id": "ShellActivityId_My_Shell_Activity_141",
+            "name": "My Shell Activity 141",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2622,8 +2622,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity141}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity142}",
-            "name": "#{my_shell_activity142}",
+            "id": "ShellActivityId_My_Shell_Activity_142",
+            "name": "My Shell Activity 142",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2640,8 +2640,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity142}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity143}",
-            "name": "#{my_shell_activity143}",
+            "id": "ShellActivityId_My_Shell_Activity_143",
+            "name": "My Shell Activity 143",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2658,8 +2658,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity143}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity144}",
-            "name": "#{my_shell_activity144}",
+            "id": "ShellActivityId_My_Shell_Activity_144",
+            "name": "My Shell Activity 144",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2676,8 +2676,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity144}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity145}",
-            "name": "#{my_shell_activity145}",
+            "id": "ShellActivityId_My_Shell_Activity_145",
+            "name": "My Shell Activity 145",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2694,8 +2694,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity145}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity146}",
-            "name": "#{my_shell_activity146}",
+            "id": "ShellActivityId_My_Shell_Activity_146",
+            "name": "My Shell Activity 146",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2712,8 +2712,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity146}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity147}",
-            "name": "#{my_shell_activity147}",
+            "id": "ShellActivityId_My_Shell_Activity_147",
+            "name": "My Shell Activity 147",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2730,8 +2730,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity147}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity148}",
-            "name": "#{my_shell_activity148}",
+            "id": "ShellActivityId_My_Shell_Activity_148",
+            "name": "My Shell Activity 148",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2748,8 +2748,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity148}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity149}",
-            "name": "#{my_shell_activity149}",
+            "id": "ShellActivityId_My_Shell_Activity_149",
+            "name": "My Shell Activity 149",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2766,8 +2766,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity149}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity150}",
-            "name": "#{my_shell_activity150}",
+            "id": "ShellActivityId_My_Shell_Activity_150",
+            "name": "My Shell Activity 150",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2784,8 +2784,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity150}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity151}",
-            "name": "#{my_shell_activity151}",
+            "id": "ShellActivityId_My_Shell_Activity_151",
+            "name": "My Shell Activity 151",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2802,8 +2802,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity151}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity152}",
-            "name": "#{my_shell_activity152}",
+            "id": "ShellActivityId_My_Shell_Activity_152",
+            "name": "My Shell Activity 152",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2820,8 +2820,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity152}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity153}",
-            "name": "#{my_shell_activity153}",
+            "id": "ShellActivityId_My_Shell_Activity_153",
+            "name": "My Shell Activity 153",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2838,8 +2838,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity153}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity154}",
-            "name": "#{my_shell_activity154}",
+            "id": "ShellActivityId_My_Shell_Activity_154",
+            "name": "My Shell Activity 154",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2856,8 +2856,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity154}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity155}",
-            "name": "#{my_shell_activity155}",
+            "id": "ShellActivityId_My_Shell_Activity_155",
+            "name": "My Shell Activity 155",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2874,8 +2874,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity155}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity156}",
-            "name": "#{my_shell_activity156}",
+            "id": "ShellActivityId_My_Shell_Activity_156",
+            "name": "My Shell Activity 156",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2892,8 +2892,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity156}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity157}",
-            "name": "#{my_shell_activity157}",
+            "id": "ShellActivityId_My_Shell_Activity_157",
+            "name": "My Shell Activity 157",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2910,8 +2910,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity157}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity158}",
-            "name": "#{my_shell_activity158}",
+            "id": "ShellActivityId_My_Shell_Activity_158",
+            "name": "My Shell Activity 158",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2928,8 +2928,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity158}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity159}",
-            "name": "#{my_shell_activity159}",
+            "id": "ShellActivityId_My_Shell_Activity_159",
+            "name": "My Shell Activity 159",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2946,8 +2946,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity159}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity160}",
-            "name": "#{my_shell_activity160}",
+            "id": "ShellActivityId_My_Shell_Activity_160",
+            "name": "My Shell Activity 160",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2964,8 +2964,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity160}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity161}",
-            "name": "#{my_shell_activity161}",
+            "id": "ShellActivityId_My_Shell_Activity_161",
+            "name": "My Shell Activity 161",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -2982,8 +2982,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity161}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity162}",
-            "name": "#{my_shell_activity162}",
+            "id": "ShellActivityId_My_Shell_Activity_162",
+            "name": "My Shell Activity 162",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3000,8 +3000,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity162}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity163}",
-            "name": "#{my_shell_activity163}",
+            "id": "ShellActivityId_My_Shell_Activity_163",
+            "name": "My Shell Activity 163",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3018,8 +3018,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity163}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity164}",
-            "name": "#{my_shell_activity164}",
+            "id": "ShellActivityId_My_Shell_Activity_164",
+            "name": "My Shell Activity 164",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3036,8 +3036,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity164}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity165}",
-            "name": "#{my_shell_activity165}",
+            "id": "ShellActivityId_My_Shell_Activity_165",
+            "name": "My Shell Activity 165",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3054,8 +3054,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity165}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity166}",
-            "name": "#{my_shell_activity166}",
+            "id": "ShellActivityId_My_Shell_Activity_166",
+            "name": "My Shell Activity 166",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3072,8 +3072,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity166}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity167}",
-            "name": "#{my_shell_activity167}",
+            "id": "ShellActivityId_My_Shell_Activity_167",
+            "name": "My Shell Activity 167",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3090,8 +3090,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity167}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity168}",
-            "name": "#{my_shell_activity168}",
+            "id": "ShellActivityId_My_Shell_Activity_168",
+            "name": "My Shell Activity 168",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3108,8 +3108,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity168}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity169}",
-            "name": "#{my_shell_activity169}",
+            "id": "ShellActivityId_My_Shell_Activity_169",
+            "name": "My Shell Activity 169",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3126,8 +3126,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity169}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity170}",
-            "name": "#{my_shell_activity170}",
+            "id": "ShellActivityId_My_Shell_Activity_170",
+            "name": "My Shell Activity 170",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3144,8 +3144,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity170}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity171}",
-            "name": "#{my_shell_activity171}",
+            "id": "ShellActivityId_My_Shell_Activity_171",
+            "name": "My Shell Activity 171",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3162,8 +3162,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity171}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity172}",
-            "name": "#{my_shell_activity172}",
+            "id": "ShellActivityId_My_Shell_Activity_172",
+            "name": "My Shell Activity 172",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3180,8 +3180,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity172}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity173}",
-            "name": "#{my_shell_activity173}",
+            "id": "ShellActivityId_My_Shell_Activity_173",
+            "name": "My Shell Activity 173",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3198,8 +3198,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity173}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity174}",
-            "name": "#{my_shell_activity174}",
+            "id": "ShellActivityId_My_Shell_Activity_174",
+            "name": "My Shell Activity 174",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3216,8 +3216,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity174}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity175}",
-            "name": "#{my_shell_activity175}",
+            "id": "ShellActivityId_My_Shell_Activity_175",
+            "name": "My Shell Activity 175",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3234,8 +3234,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity175}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity176}",
-            "name": "#{my_shell_activity176}",
+            "id": "ShellActivityId_My_Shell_Activity_176",
+            "name": "My Shell Activity 176",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3252,8 +3252,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity176}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity177}",
-            "name": "#{my_shell_activity177}",
+            "id": "ShellActivityId_My_Shell_Activity_177",
+            "name": "My Shell Activity 177",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3270,8 +3270,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity177}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity178}",
-            "name": "#{my_shell_activity178}",
+            "id": "ShellActivityId_My_Shell_Activity_178",
+            "name": "My Shell Activity 178",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3288,8 +3288,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity178}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity179}",
-            "name": "#{my_shell_activity179}",
+            "id": "ShellActivityId_My_Shell_Activity_179",
+            "name": "My Shell Activity 179",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3306,8 +3306,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity179}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity180}",
-            "name": "#{my_shell_activity180}",
+            "id": "ShellActivityId_My_Shell_Activity_180",
+            "name": "My Shell Activity 180",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3324,8 +3324,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity180}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity181}",
-            "name": "#{my_shell_activity181}",
+            "id": "ShellActivityId_My_Shell_Activity_181",
+            "name": "My Shell Activity 181",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3342,8 +3342,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity181}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity182}",
-            "name": "#{my_shell_activity182}",
+            "id": "ShellActivityId_My_Shell_Activity_182",
+            "name": "My Shell Activity 182",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3360,8 +3360,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity182}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity183}",
-            "name": "#{my_shell_activity183}",
+            "id": "ShellActivityId_My_Shell_Activity_183",
+            "name": "My Shell Activity 183",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3378,8 +3378,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity183}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity184}",
-            "name": "#{my_shell_activity184}",
+            "id": "ShellActivityId_My_Shell_Activity_184",
+            "name": "My Shell Activity 184",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3396,8 +3396,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity184}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity185}",
-            "name": "#{my_shell_activity185}",
+            "id": "ShellActivityId_My_Shell_Activity_185",
+            "name": "My Shell Activity 185",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3414,8 +3414,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity185}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity186}",
-            "name": "#{my_shell_activity186}",
+            "id": "ShellActivityId_My_Shell_Activity_186",
+            "name": "My Shell Activity 186",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3432,8 +3432,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity186}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity187}",
-            "name": "#{my_shell_activity187}",
+            "id": "ShellActivityId_My_Shell_Activity_187",
+            "name": "My Shell Activity 187",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3450,8 +3450,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity187}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity188}",
-            "name": "#{my_shell_activity188}",
+            "id": "ShellActivityId_My_Shell_Activity_188",
+            "name": "My Shell Activity 188",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3468,8 +3468,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity188}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity189}",
-            "name": "#{my_shell_activity189}",
+            "id": "ShellActivityId_My_Shell_Activity_189",
+            "name": "My Shell Activity 189",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3486,8 +3486,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity189}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity190}",
-            "name": "#{my_shell_activity190}",
+            "id": "ShellActivityId_My_Shell_Activity_190",
+            "name": "My Shell Activity 190",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3504,8 +3504,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity190}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity191}",
-            "name": "#{my_shell_activity191}",
+            "id": "ShellActivityId_My_Shell_Activity_191",
+            "name": "My Shell Activity 191",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3522,8 +3522,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity191}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity192}",
-            "name": "#{my_shell_activity192}",
+            "id": "ShellActivityId_My_Shell_Activity_192",
+            "name": "My Shell Activity 192",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3540,8 +3540,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity192}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity193}",
-            "name": "#{my_shell_activity193}",
+            "id": "ShellActivityId_My_Shell_Activity_193",
+            "name": "My Shell Activity 193",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3558,8 +3558,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity193}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity194}",
-            "name": "#{my_shell_activity194}",
+            "id": "ShellActivityId_My_Shell_Activity_194",
+            "name": "My Shell Activity 194",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3576,8 +3576,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity194}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity195}",
-            "name": "#{my_shell_activity195}",
+            "id": "ShellActivityId_My_Shell_Activity_195",
+            "name": "My Shell Activity 195",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3594,8 +3594,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity195}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity196}",
-            "name": "#{my_shell_activity196}",
+            "id": "ShellActivityId_My_Shell_Activity_196",
+            "name": "My Shell Activity 196",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3612,8 +3612,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity196}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity197}",
-            "name": "#{my_shell_activity197}",
+            "id": "ShellActivityId_My_Shell_Activity_197",
+            "name": "My Shell Activity 197",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3630,8 +3630,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity197}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity198}",
-            "name": "#{my_shell_activity198}",
+            "id": "ShellActivityId_My_Shell_Activity_198",
+            "name": "My Shell Activity 198",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3648,8 +3648,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity198}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity199}",
-            "name": "#{my_shell_activity199}",
+            "id": "ShellActivityId_My_Shell_Activity_199",
+            "name": "My Shell Activity 199",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3666,8 +3666,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity199}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity200}",
-            "name": "#{my_shell_activity200}",
+            "id": "ShellActivityId_My_Shell_Activity_200",
+            "name": "My Shell Activity 200",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3684,8 +3684,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity200}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity201}",
-            "name": "#{my_shell_activity201}",
+            "id": "ShellActivityId_My_Shell_Activity_201",
+            "name": "My Shell Activity 201",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3702,8 +3702,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity201}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity202}",
-            "name": "#{my_shell_activity202}",
+            "id": "ShellActivityId_My_Shell_Activity_202",
+            "name": "My Shell Activity 202",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3720,8 +3720,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity202}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity203}",
-            "name": "#{my_shell_activity203}",
+            "id": "ShellActivityId_My_Shell_Activity_203",
+            "name": "My Shell Activity 203",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3738,8 +3738,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity203}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity204}",
-            "name": "#{my_shell_activity204}",
+            "id": "ShellActivityId_My_Shell_Activity_204",
+            "name": "My Shell Activity 204",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3756,8 +3756,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity204}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity205}",
-            "name": "#{my_shell_activity205}",
+            "id": "ShellActivityId_My_Shell_Activity_205",
+            "name": "My Shell Activity 205",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3774,8 +3774,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity205}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity206}",
-            "name": "#{my_shell_activity206}",
+            "id": "ShellActivityId_My_Shell_Activity_206",
+            "name": "My Shell Activity 206",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3792,8 +3792,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity206}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity207}",
-            "name": "#{my_shell_activity207}",
+            "id": "ShellActivityId_My_Shell_Activity_207",
+            "name": "My Shell Activity 207",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3810,8 +3810,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity207}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity208}",
-            "name": "#{my_shell_activity208}",
+            "id": "ShellActivityId_My_Shell_Activity_208",
+            "name": "My Shell Activity 208",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3828,8 +3828,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity208}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity209}",
-            "name": "#{my_shell_activity209}",
+            "id": "ShellActivityId_My_Shell_Activity_209",
+            "name": "My Shell Activity 209",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3846,8 +3846,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity209}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity210}",
-            "name": "#{my_shell_activity210}",
+            "id": "ShellActivityId_My_Shell_Activity_210",
+            "name": "My Shell Activity 210",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3864,8 +3864,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity210}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity211}",
-            "name": "#{my_shell_activity211}",
+            "id": "ShellActivityId_My_Shell_Activity_211",
+            "name": "My Shell Activity 211",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3882,8 +3882,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity211}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity212}",
-            "name": "#{my_shell_activity212}",
+            "id": "ShellActivityId_My_Shell_Activity_212",
+            "name": "My Shell Activity 212",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3900,8 +3900,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity212}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity213}",
-            "name": "#{my_shell_activity213}",
+            "id": "ShellActivityId_My_Shell_Activity_213",
+            "name": "My Shell Activity 213",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3918,8 +3918,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity213}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity214}",
-            "name": "#{my_shell_activity214}",
+            "id": "ShellActivityId_My_Shell_Activity_214",
+            "name": "My Shell Activity 214",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3936,8 +3936,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity214}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity215}",
-            "name": "#{my_shell_activity215}",
+            "id": "ShellActivityId_My_Shell_Activity_215",
+            "name": "My Shell Activity 215",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3954,8 +3954,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity215}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity216}",
-            "name": "#{my_shell_activity216}",
+            "id": "ShellActivityId_My_Shell_Activity_216",
+            "name": "My Shell Activity 216",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3972,8 +3972,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity216}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity217}",
-            "name": "#{my_shell_activity217}",
+            "id": "ShellActivityId_My_Shell_Activity_217",
+            "name": "My Shell Activity 217",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -3990,8 +3990,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity217}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity218}",
-            "name": "#{my_shell_activity218}",
+            "id": "ShellActivityId_My_Shell_Activity_218",
+            "name": "My Shell Activity 218",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4008,8 +4008,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity218}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity219}",
-            "name": "#{my_shell_activity219}",
+            "id": "ShellActivityId_My_Shell_Activity_219",
+            "name": "My Shell Activity 219",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4026,8 +4026,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity219}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity220}",
-            "name": "#{my_shell_activity220}",
+            "id": "ShellActivityId_My_Shell_Activity_220",
+            "name": "My Shell Activity 220",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4044,8 +4044,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity220}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity221}",
-            "name": "#{my_shell_activity221}",
+            "id": "ShellActivityId_My_Shell_Activity_221",
+            "name": "My Shell Activity 221",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4062,8 +4062,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity221}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity222}",
-            "name": "#{my_shell_activity222}",
+            "id": "ShellActivityId_My_Shell_Activity_222",
+            "name": "My Shell Activity 222",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4080,8 +4080,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity222}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity223}",
-            "name": "#{my_shell_activity223}",
+            "id": "ShellActivityId_My_Shell_Activity_223",
+            "name": "My Shell Activity 223",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4098,8 +4098,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity223}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity224}",
-            "name": "#{my_shell_activity224}",
+            "id": "ShellActivityId_My_Shell_Activity_224",
+            "name": "My Shell Activity 224",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4116,8 +4116,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity224}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity225}",
-            "name": "#{my_shell_activity225}",
+            "id": "ShellActivityId_My_Shell_Activity_225",
+            "name": "My Shell Activity 225",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4134,8 +4134,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity225}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity226}",
-            "name": "#{my_shell_activity226}",
+            "id": "ShellActivityId_My_Shell_Activity_226",
+            "name": "My Shell Activity 226",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4152,8 +4152,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity226}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity227}",
-            "name": "#{my_shell_activity227}",
+            "id": "ShellActivityId_My_Shell_Activity_227",
+            "name": "My Shell Activity 227",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4170,8 +4170,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity227}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity228}",
-            "name": "#{my_shell_activity228}",
+            "id": "ShellActivityId_My_Shell_Activity_228",
+            "name": "My Shell Activity 228",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4188,8 +4188,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity228}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity229}",
-            "name": "#{my_shell_activity229}",
+            "id": "ShellActivityId_My_Shell_Activity_229",
+            "name": "My Shell Activity 229",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4206,8 +4206,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity229}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity230}",
-            "name": "#{my_shell_activity230}",
+            "id": "ShellActivityId_My_Shell_Activity_230",
+            "name": "My Shell Activity 230",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4224,8 +4224,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity230}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity231}",
-            "name": "#{my_shell_activity231}",
+            "id": "ShellActivityId_My_Shell_Activity_231",
+            "name": "My Shell Activity 231",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4242,8 +4242,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity231}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity232}",
-            "name": "#{my_shell_activity232}",
+            "id": "ShellActivityId_My_Shell_Activity_232",
+            "name": "My Shell Activity 232",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4260,8 +4260,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity232}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity233}",
-            "name": "#{my_shell_activity233}",
+            "id": "ShellActivityId_My_Shell_Activity_233",
+            "name": "My Shell Activity 233",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4278,8 +4278,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity233}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity234}",
-            "name": "#{my_shell_activity234}",
+            "id": "ShellActivityId_My_Shell_Activity_234",
+            "name": "My Shell Activity 234",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4296,8 +4296,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity234}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity235}",
-            "name": "#{my_shell_activity235}",
+            "id": "ShellActivityId_My_Shell_Activity_235",
+            "name": "My Shell Activity 235",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4314,8 +4314,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity235}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity236}",
-            "name": "#{my_shell_activity236}",
+            "id": "ShellActivityId_My_Shell_Activity_236",
+            "name": "My Shell Activity 236",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4332,8 +4332,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity236}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity237}",
-            "name": "#{my_shell_activity237}",
+            "id": "ShellActivityId_My_Shell_Activity_237",
+            "name": "My Shell Activity 237",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4350,8 +4350,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity237}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity238}",
-            "name": "#{my_shell_activity238}",
+            "id": "ShellActivityId_My_Shell_Activity_238",
+            "name": "My Shell Activity 238",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4368,8 +4368,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity238}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity239}",
-            "name": "#{my_shell_activity239}",
+            "id": "ShellActivityId_My_Shell_Activity_239",
+            "name": "My Shell Activity 239",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4386,8 +4386,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity239}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity240}",
-            "name": "#{my_shell_activity240}",
+            "id": "ShellActivityId_My_Shell_Activity_240",
+            "name": "My Shell Activity 240",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4404,8 +4404,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity240}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity241}",
-            "name": "#{my_shell_activity241}",
+            "id": "ShellActivityId_My_Shell_Activity_241",
+            "name": "My Shell Activity 241",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4422,8 +4422,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity241}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity242}",
-            "name": "#{my_shell_activity242}",
+            "id": "ShellActivityId_My_Shell_Activity_242",
+            "name": "My Shell Activity 242",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -4440,8 +4440,8 @@
             "stderr": "s3://#{my_s3_base_path}/Controller/Logs/stderr/#{my_shell_activity242}"
         },
         {
-            "id": "ShellActivityId_#{my_shell_activity243}",
-            "name": "#{my_shell_activity243}",
+            "id": "ShellActivityId_My_Shell_Activity_243",
+            "name": "My Shell Activity 243",
             "type": "ShellCommandActivity",
             "scriptUri": "#{my_controller_scripts}/submit_spark_job.sh",
             "runsOn": {
@@ -5538,7 +5538,7 @@
         "my_emr_master_instance_type": "m5.2xlarge",
         "my_emr_core_instance_type": "m5.2xlarge",
         "my_emr_instance_core_count": "3",
-        "my_emr_terminate_after": "1 Hour",
+        "my_emr_terminate_after": "1",
         "my_emr_region": "us-east-1",
         "my_emr_role": "PPM_DataPipelineRole",
         "my_emr_resource_role": "PPM_DataPipelineResourceRole",
