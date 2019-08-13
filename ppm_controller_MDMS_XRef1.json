@@ -84,724 +84,865 @@
             ]
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_1",
-            "name": "My Shell Activity 1",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_1",
+            "name": "My Shell Table Staging 1",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity1}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity1}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity1}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity1}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity1}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity1}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_2",
-            "name": "My Shell Activity 2",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_1",
+            "name": "My Shell Table Transaction 1",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_1"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity2}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity1}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity2}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity2}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity1}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity1}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_3",
-            "name": "My Shell Activity 3",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_2",
+            "name": "My Shell Table Staging 2",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity3}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity2}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity3}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity3}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity2}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity2}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_4",
-            "name": "My Shell Activity 4",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_2",
+            "name": "My Shell Table Transaction 2",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_2"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity4}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity2}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity4}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity4}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity2}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity2}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_5",
-            "name": "My Shell Activity 5",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_3",
+            "name": "My Shell Table Staging 3",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity5}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity3}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity5}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity5}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity3}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity3}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_6",
-            "name": "My Shell Activity 6",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_3",
+            "name": "My Shell Table Transaction 3",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_3"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity6}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity3}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity6}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity6}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity3}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity3}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_7",
-            "name": "My Shell Activity 7",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_4",
+            "name": "My Shell Table Staging 4",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity7}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity4}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity7}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity7}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity4}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity4}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_8",
-            "name": "My Shell Activity 8",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_4",
+            "name": "My Shell Table Transaction 4",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_4"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity8}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity4}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity8}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity8}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity4}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity4}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_9",
-            "name": "My Shell Activity 9",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_5",
+            "name": "My Shell Table Staging 5",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity9}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity5}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity9}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity9}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity5}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity5}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_10",
-            "name": "My Shell Activity 10",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_5",
+            "name": "My Shell Table Transaction 5",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_5"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity10}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity5}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity10}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity10}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity5}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity5}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_11",
-            "name": "My Shell Activity 11",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_6",
+            "name": "My Shell Table Staging 6",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity11}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity6}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity11}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity11}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity6}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity6}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_12",
-            "name": "My Shell Activity 12",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_6",
+            "name": "My Shell Table Transaction 6",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_6"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity12}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity6}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity12}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity12}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity6}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity6}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_13",
-            "name": "My Shell Activity 13",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_7",
+            "name": "My Shell Table Staging 7",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity13}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity7}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity13}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity13}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity7}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity7}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_14",
-            "name": "My Shell Activity 14",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_7",
+            "name": "My Shell Table Transaction 7",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_7"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity14}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity7}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity14}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity14}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity7}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity7}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_15",
-            "name": "My Shell Activity 15",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_8",
+            "name": "My Shell Table Staging 8",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity15}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity8}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity15}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity15}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity8}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity8}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_16",
-            "name": "My Shell Activity 16",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_8",
+            "name": "My Shell Table Transaction 8",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_8"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity16}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity8}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity16}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity16}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity8}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity8}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_17",
-            "name": "My Shell Activity 17",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_9",
+            "name": "My Shell Table Staging 9",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity17}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity9}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity17}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity17}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity9}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity9}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_18",
-            "name": "My Shell Activity 18",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_9",
+            "name": "My Shell Table Transaction 9",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_9"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity18}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity9}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity18}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity18}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity9}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity9}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_19",
-            "name": "My Shell Activity 19",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_10",
+            "name": "My Shell Table Staging 10",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity19}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity10}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity19}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity19}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity10}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity10}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_20",
-            "name": "My Shell Activity 20",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_10",
+            "name": "My Shell Table Transaction 10",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_10"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity20}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity10}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity20}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity20}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity10}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity10}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_21",
-            "name": "My Shell Activity 21",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_11",
+            "name": "My Shell Table Staging 11",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity21}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity11}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity21}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity21}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity11}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity11}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_22",
-            "name": "My Shell Activity 22",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_11",
+            "name": "My Shell Table Transaction 11",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_11"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity22}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity11}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity22}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity22}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity11}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity11}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_23",
-            "name": "My Shell Activity 23",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_12",
+            "name": "My Shell Table Staging 12",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity23}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity12}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity23}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity23}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity12}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity12}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_24",
-            "name": "My Shell Activity 24",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_12",
+            "name": "My Shell Table Transaction 12",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_12"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity24}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity12}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity24}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity24}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity12}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity12}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_25",
-            "name": "My Shell Activity 25",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_13",
+            "name": "My Shell Table Staging 13",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity25}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity13}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity25}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity25}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity13}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity13}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_26",
-            "name": "My Shell Activity 26",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_13",
+            "name": "My Shell Table Transaction 13",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_13"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity26}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity13}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity26}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity26}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity13}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity13}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_27",
-            "name": "My Shell Activity 27",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_14",
+            "name": "My Shell Table Staging 14",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity27}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity14}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity27}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity27}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity14}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity14}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_28",
-            "name": "My Shell Activity 28",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_14",
+            "name": "My Shell Table Transaction 14",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_14"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity28}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity14}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity28}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity28}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity14}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity14}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_29",
-            "name": "My Shell Activity 29",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_15",
+            "name": "My Shell Table Staging 15",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity29}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity15}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity29}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity29}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity15}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity15}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_30",
-            "name": "My Shell Activity 30",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_15",
+            "name": "My Shell Table Transaction 15",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_15"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity30}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity15}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity30}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity30}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity15}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity15}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_31",
-            "name": "My Shell Activity 31",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_16",
+            "name": "My Shell Table Staging 16",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity31}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity16}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity31}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity31}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity16}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity16}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_32",
-            "name": "My Shell Activity 32",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_16",
+            "name": "My Shell Table Transaction 16",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_16"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity32}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity16}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity32}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity32}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity16}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity16}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_33",
-            "name": "My Shell Activity 33",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_17",
+            "name": "My Shell Table Staging 17",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity33}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity17}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity33}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity33}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity17}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity17}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_34",
-            "name": "My Shell Activity 34",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_17",
+            "name": "My Shell Table Transaction 17",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_17"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity34}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity17}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity34}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity34}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity17}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity17}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_35",
-            "name": "My Shell Activity 35",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_18",
+            "name": "My Shell Table Staging 18",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity35}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity18}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity35}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity35}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity18}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity18}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_36",
-            "name": "My Shell Activity 36",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_18",
+            "name": "My Shell Table Transaction 18",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_18"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity36}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity18}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity36}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity36}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity18}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity18}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_37",
-            "name": "My Shell Activity 37",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_19",
+            "name": "My Shell Table Staging 19",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity37}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity19}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity37}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity37}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity19}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity19}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_38",
-            "name": "My Shell Activity 38",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_19",
+            "name": "My Shell Table Transaction 19",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_19"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity38}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity19}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity38}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity38}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity19}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity19}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_39",
-            "name": "My Shell Activity 39",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_20",
+            "name": "My Shell Table Staging 20",
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity39}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity20}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity39}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity39}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity20}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity20}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_40",
-            "name": "My Shell Activity 40",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_20",
+            "name": "My Shell Table Transaction 20",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_20"
+              }
+            ],
             "type": "ShellCommandActivity",
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
             },
             "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity40}.py",
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity20}.py",
                 "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
                 "#{my_datalake_bucket}",
                 "#{my_ingest_bucket}",
                 "#{my_system_bucket}"
             ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity40}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity40}"
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity20}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity20}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_21",
+            "name": "My Shell Table Staging 21",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity21}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity21}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity21}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_21",
+            "name": "My Shell Table Transaction 21",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_21"
+              }
+            ],
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity21}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity21}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity21}"
         },
         {
             "id": "Default",
@@ -879,163 +1020,87 @@
             "type": "string"
         },
         {
-            "id": "my_shell_activity1",
+            "id": "my_table_activity1",
             "type": "string"
         },
         {
-            "id": "my_shell_activity2",
+            "id": "my_table_activity2",
             "type": "string"
         },
         {
-            "id": "my_shell_activity3",
+            "id": "my_table_activity3",
             "type": "string"
         },
         {
-            "id": "my_shell_activity4",
+            "id": "my_table_activity4",
             "type": "string"
         },
         {
-            "id": "my_shell_activity5",
+            "id": "my_table_activity5",
             "type": "string"
         },
         {
-            "id": "my_shell_activity6",
+            "id": "my_table_activity6",
             "type": "string"
         },
         {
-            "id": "my_shell_activity7",
+            "id": "my_table_activity7",
             "type": "string"
         },
         {
-            "id": "my_shell_activity8",
+            "id": "my_table_activity8",
             "type": "string"
         },
         {
-            "id": "my_shell_activity9",
+            "id": "my_table_activity9",
             "type": "string"
         },
         {
-            "id": "my_shell_activity10",
+            "id": "my_table_activity10",
             "type": "string"
         },
         {
-            "id": "my_shell_activity11",
+            "id": "my_table_activity11",
             "type": "string"
         },
         {
-            "id": "my_shell_activity12",
+            "id": "my_table_activity12",
             "type": "string"
         },
         {
-            "id": "my_shell_activity13",
+            "id": "my_table_activity13",
             "type": "string"
         },
         {
-            "id": "my_shell_activity14",
+            "id": "my_table_activity14",
             "type": "string"
         },
         {
-            "id": "my_shell_activity15",
+            "id": "my_table_activity15",
             "type": "string"
         },
         {
-            "id": "my_shell_activity16",
+            "id": "my_table_activity16",
             "type": "string"
         },
         {
-            "id": "my_shell_activity17",
+            "id": "my_table_activity17",
             "type": "string"
         },
         {
-            "id": "my_shell_activity18",
+            "id": "my_table_activity18",
             "type": "string"
         },
         {
-            "id": "my_shell_activity19",
+            "id": "my_table_activity19",
             "type": "string"
         },
         {
-            "id": "my_shell_activity20",
+            "id": "my_table_activity20",
             "type": "string"
         },
         {
-            "id": "my_shell_activity21",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity22",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity23",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity24",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity25",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity26",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity27",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity28",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity29",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity30",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity31",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity32",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity33",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity34",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity35",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity36",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity37",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity38",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity39",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity40",
+            "id": "my_table_activity21",
             "type": "string"
         }
     ],
@@ -1056,45 +1121,27 @@
         "my_emr_region": "us-east-1",
         "my_emr_role": "PPM_DataPipelineRole",
         "my_emr_resource_role": "PPM_DataPipelineResourceRole",
-        "my_shell_activity1": "mdms_curate_acct_type",
-        "my_shell_activity2": "mdms_curate_balance_type",
-        "my_shell_activity3": "mdms_curate_business_segment",
-        "my_shell_activity4": "mdms_curate_business_unit",
-        "my_shell_activity5": "mdms_curate_cc_acct",
-        "my_shell_activity6": "mdms_curate_cc_acct_grp",
-        "my_shell_activity7": "mdms_curate_cc_acct_grp_rpt",
-        "my_shell_activity8": "mdms_curate_cm_elim_loc",
-        "my_shell_activity9": "mdms_curate_consolidation_company",
-        "my_shell_activity10": "mdms_curate_consolidation_type",
-        "my_shell_activity11": "mdms_curate_contract_mfg_loc",
-        "my_shell_activity12": "mdms_curate_conv_currency_exch",
-        "my_shell_activity13": "mdms_curate_conv_uom",
-        "my_shell_activity14": "mdms_curate_cost_center_type",
-        "my_shell_activity15": "mdms_curate_country",
-        "my_shell_activity16": "mdms_curate_country_market_type",
-        "my_shell_activity17": "mdms_curate_currency",
-        "my_shell_activity18": "mdms_curate_currency_exchange_type",
-        "my_shell_activity19": "mdms_curate_customer_type",
-        "my_shell_activity20": "mdms_curate_duration",
-        "my_shell_activity21": "mdms_curate_ext_attribute_type",
-        "my_shell_activity22": "mdms_curate_functional_area",
-        "my_shell_activity23": "mdms_curate_functional_area_grp",
-        "my_shell_activity24": "mdms_curate_functional_area_grp_rpt",
-        "my_shell_activity25": "mdms_curate_geo_area",
-        "my_shell_activity26": "mdms_curate_geo_region",
-        "my_shell_activity27": "mdms_curate_geo_sub_region",
-        "my_shell_activity28": "mdms_curate_geo_territory",
-        "my_shell_activity29": "mdms_curate_gl_acct",
-        "my_shell_activity30": "mdms_curate_gl_acct_alloc",
-        "my_shell_activity31": "mdms_curate_gl_acct_grp",
-        "my_shell_activity32": "mdms_curate_gl_acct_grp_rpt",
-        "my_shell_activity33": "mdms_curate_inventory_type",
-        "my_shell_activity34": "mdms_curate_invoice_type",
-        "my_shell_activity35": "mdms_curate_key_product_group",
-        "my_shell_activity36": "mdms_curate_legal_entity",
-        "my_shell_activity37": "mdms_curate_loc_platform",
-        "my_shell_activity38": "mdms_curate_loc_region",
-        "my_shell_activity39": "mdms_curate_loc_sub_platform",
-        "my_shell_activity40": "mdms_curate_location"
+        "my_table_activity1": "22z",
+        "my_table_activity2": "22z",
+        "my_table_activity3": "22z",
+        "my_table_activity4": "22z",
+        "my_table_activity5": "22z",
+        "my_table_activity6": "22z",
+        "my_table_activity7": "22z",
+        "my_table_activity8": "22z",
+        "my_table_activity9": "22z",
+        "my_table_activity10": "22z",
+        "my_table_activity11": "22z",
+        "my_table_activity12": "23z",
+        "my_table_activity13": "23z",
+        "my_table_activity14": "23z",
+        "my_table_activity15": "23z",
+        "my_table_activity16": "23z",
+        "my_table_activity17": "23z",
+        "my_table_activity18": "23z",
+        "my_table_activity19": "23z",
+        "my_table_activity20": "23z",
+        "my_table_activity21": "23z",
+        "my_table_activity22": "23z"
     }
 }

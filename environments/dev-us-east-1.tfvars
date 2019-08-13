@@ -4,5 +4,5 @@ environment = "dev"
 
 project = "ppm"
 
-terraform_workspace = "nonprod-us-east-1"
+terraform_workspace = "dev-us-east-1"
 
