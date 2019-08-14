@@ -2,7 +2,7 @@
 .ONESHELL:
 .SHELL := /usr/bin/bash
 .PHONY: apply destroy destroy-target plan-destroy plan plan-target prep
-VARS="environments/$(ENV)-$(REGION).tfvars"
+VARS="environments/$(ENV)/$(ENV)-$(REGION).tfvars"
 WORKSPACE="$(ENV)-$(REGION)"
 BOLD=$(shell tput bold)
 RED=$(shell tput setaf 1)
