@@ -138,60 +138,6 @@
             "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity3}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_4",
-            "name": "My Shell Activity 4",
-            "type": "ShellCommandActivity",
-            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity4}.py",
-                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
-                "#{my_datalake_bucket}",
-                "#{my_ingest_bucket}",
-                "#{my_system_bucket}"
-            ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity4}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity4}"
-        },
-        {
-            "id": "ShellActivityId_My_Shell_Activity_5",
-            "name": "My Shell Activity 5",
-            "type": "ShellCommandActivity",
-            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity5}.py",
-                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
-                "#{my_datalake_bucket}",
-                "#{my_ingest_bucket}",
-                "#{my_system_bucket}"
-            ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity5}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity5}"
-        },
-        {
-            "id": "ShellActivityId_My_Shell_Activity_6",
-            "name": "My Shell Activity 6",
-            "type": "ShellCommandActivity",
-            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity6}.py",
-                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
-                "#{my_datalake_bucket}",
-                "#{my_ingest_bucket}",
-                "#{my_system_bucket}"
-            ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity6}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity6}"
-        },
-        {
             "id": "Default",
             "name": "Default",
             "scheduleType": "ONDEMAND",
@@ -277,42 +223,6 @@
         {
             "id": "my_shell_activity3",
             "type": "string"
-        },
-        {
-            "id": "my_shell_activity4",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity5",
-            "type": "string"
-        },
-        {
-            "id": "my_shell_activity6",
-            "type": "string"
         }
-    ],
-    "values": {
-        "my_environment": "dev",
-        "my_system_bucket": "wrk-system-ppm-#{my_environment}",
-        "my_ingest_bucket": "wrk-ingest-ppm-#{my_environment}",
-        "my_datalake_bucket": "wrk-datalake-ppm-#{my_environment}",
-        "my_systems": "NV",
-        "my_emr_subnet_id": "subnet-6b4b2f36",
-        "my_emr_master_security_group_id": "sg-096205745f33db931",
-        "my_emr_slave_security_group_id": "sg-0a82b9f5780744421",
-        "my_emr_service_access_security_group_id": "sg-045304204b8597b10",
-        "my_emr_master_instance_type": "m5.2xlarge",
-        "my_emr_core_instance_type": "m5.2xlarge",
-        "my_emr_instance_core_count": "3",
-        "my_emr_terminate_after": "1",
-        "my_emr_region": "us-east-1",
-        "my_emr_role": "PPM_DataPipelineRole",
-        "my_emr_resource_role": "PPM_DataPipelineResourceRole",
-        "my_shell_activity1": "wkf_nv_mstr_customer_ods_stgm_customer",
-        "my_shell_activity2": "wkf_nv_mstr_material_location_ods_stgm_material_location",
-        "my_shell_activity3": "wkf_nv_mstr_material_ods_stgc_material_uom",
-        "my_shell_activity4": "wkf_nv_mstr_material_ods_stgm_material",
-        "my_shell_activity5": "wkf_nv_tran_invoice_header_ods_stgt_invoice_header",
-        "my_shell_activity6": "wkf_nv_tran_invoice_line_ods_stgt_invoice_line"
-    }
+    ]
 }

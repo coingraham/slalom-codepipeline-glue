@@ -1,0 +1,26 @@
+{
+    "values": {
+        "my_environment": "${ppm_environment}",
+        "my_system_bucket": "${ppm_system_bucket}",
+        "my_ingest_bucket": "${ppm_ingest_bucket}",
+        "my_datalake_bucket": "${ppm_datalake_bucket}",
+        "my_systems": "${ppm_system}",
+        "my_emr_subnet_id": "${ppm_emr_subnet}",
+        "my_emr_master_security_group_id": "${ppm_emr_master_sg}",
+        "my_emr_slave_security_group_id": "${ppm_emr_slave_sg}",
+        "my_emr_service_access_security_group_id": "${ppm_emr_service_sg}",
+        "my_emr_master_instance_type": "${ppm_emr_instance_type}",
+        "my_emr_core_instance_type": "${ppm_emr_instance_type}",
+        "my_emr_instance_core_count": "${ppm_emr_core_instance_count}",
+        "my_emr_terminate_after": "${ppm_emr_terminate_time}",
+        "my_emr_region": "${ppm_emr_region}",
+        "my_emr_role": "${ppm_emr_role}",
+        "my_emr_resource_role": "${ppm_emr_resource_role}",
+        "my_shell_activity1": "wkf_s2_mstr_customer_ods_stgm_customer",
+        "my_shell_activity2": "wkf_s2_mstr_material_location_ods_stgm_material_location",
+        "my_shell_activity3": "wkf_s2_mstr_material_ods_stgc_material_uom",
+        "my_shell_activity4": "wkf_s2_mstr_material_ods_stgm_material",
+        "my_shell_activity5": "wkf_s2_tran_invoice_header_ods_stgt_invoice_header",
+        "my_shell_activity6": "wkf_s2_tran_invoice_line_ods_stgt_invoice_line"
+    }
+}

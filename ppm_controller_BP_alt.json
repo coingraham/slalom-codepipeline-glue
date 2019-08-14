@@ -105,6 +105,11 @@
             "id": "ShellActivityId_My_Shell_Activity_2",
             "name": "My Shell Activity 2",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_1"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -123,6 +128,11 @@
             "id": "ShellActivityId_My_Shell_Activity_3",
             "name": "My Shell Activity 3",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_2"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -141,6 +151,11 @@
             "id": "ShellActivityId_My_Shell_Activity_4",
             "name": "My Shell Activity 4",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_3"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -159,6 +174,11 @@
             "id": "ShellActivityId_My_Shell_Activity_5",
             "name": "My Shell Activity 5",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_4"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -195,6 +215,11 @@
             "id": "ShellActivityId_My_Shell_Activity_7",
             "name": "My Shell Activity 7",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_6"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -213,6 +238,11 @@
             "id": "ShellActivityId_My_Shell_Activity_8",
             "name": "My Shell Activity 8",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_7"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -231,6 +261,11 @@
             "id": "ShellActivityId_My_Shell_Activity_9",
             "name": "My Shell Activity 9",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_8"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -249,6 +284,11 @@
             "id": "ShellActivityId_My_Shell_Activity_10",
             "name": "My Shell Activity 10",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_9"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -267,6 +307,11 @@
             "id": "ShellActivityId_My_Shell_Activity_11",
             "name": "My Shell Activity 11",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_10"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -303,6 +348,11 @@
             "id": "ShellActivityId_My_Shell_Activity_13",
             "name": "My Shell Activity 13",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_12"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -321,6 +371,11 @@
             "id": "ShellActivityId_My_Shell_Activity_14",
             "name": "My Shell Activity 14",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_13"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -339,6 +394,11 @@
             "id": "ShellActivityId_My_Shell_Activity_15",
             "name": "My Shell Activity 15",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_14"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -447,6 +507,11 @@
             "id": "ShellActivityId_My_Shell_Activity_21",
             "name": "My Shell Activity 21",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_20"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -465,6 +530,11 @@
             "id": "ShellActivityId_My_Shell_Activity_22",
             "name": "My Shell Activity 22",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_21"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -501,6 +571,11 @@
             "id": "ShellActivityId_My_Shell_Activity_24",
             "name": "My Shell Activity 24",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_23"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -519,6 +594,11 @@
             "id": "ShellActivityId_My_Shell_Activity_25",
             "name": "My Shell Activity 25",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_24"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -537,6 +617,11 @@
             "id": "ShellActivityId_My_Shell_Activity_26",
             "name": "My Shell Activity 26",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_25"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -555,6 +640,11 @@
             "id": "ShellActivityId_My_Shell_Activity_27",
             "name": "My Shell Activity 27",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_26"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -573,6 +663,11 @@
             "id": "ShellActivityId_My_Shell_Activity_28",
             "name": "My Shell Activity 28",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_27"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -609,6 +704,11 @@
             "id": "ShellActivityId_My_Shell_Activity_30",
             "name": "My Shell Activity 30",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_29"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -622,6 +722,65 @@
             ],
             "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity30}",
             "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity30}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_31",
+            "name": "My Shell Activity 31",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_30"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity31}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity31}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity31}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_32",
+            "name": "My Shell Activity 32",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity32}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity32}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity32}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_33",
+            "name": "My Shell Activity 33",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity33}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity33}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity33}"
         },
         {
             "id": "Default",
@@ -817,54 +976,18 @@
         {
             "id": "my_shell_activity30",
             "type": "string"
+        },
+        {
+            "id": "my_shell_activity31",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity32",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity33",
+            "type": "string"
         }
-    ],
-    "values": {
-        "my_environment": "dev",
-        "my_system_bucket": "wrk-system-ppm-#{my_environment}",
-        "my_ingest_bucket": "wrk-ingest-ppm-#{my_environment}",
-        "my_datalake_bucket": "wrk-datalake-ppm-#{my_environment}",
-        "my_systems": "BP",
-        "my_emr_subnet_id": "subnet-6b4b2f36",
-        "my_emr_master_security_group_id": "sg-096205745f33db931",
-        "my_emr_slave_security_group_id": "sg-0a82b9f5780744421",
-        "my_emr_service_access_security_group_id": "sg-045304204b8597b10",
-        "my_emr_master_instance_type": "m5.2xlarge",
-        "my_emr_core_instance_type": "m5.2xlarge",
-        "my_emr_instance_core_count": "3",
-        "my_emr_terminate_after": "1",
-        "my_emr_region": "us-east-1",
-        "my_emr_role": "PPM_DataPipelineRole",
-        "my_emr_resource_role": "PPM_DataPipelineResourceRole",
-        "my_shell_activity1": "wkf_bp_diem_iiml01_ods_stge_material",
-        "my_shell_activity2": "wkf_bp_fco_tms_step2_ods_stgt_invoice_header",
-        "my_shell_activity3": "wkf_bp_iic_iiml01_ods_stgm_material",
-        "my_shell_activity4": "wkf_bp_kpicstdivy_ods_stge_material_location",
-        "my_shell_activity5": "wkf_bp_kpisls_bp_tran_invoice_header_step2_ods_stgt_invoice_line",
-        "my_shell_activity6": "wkf_bp_kpisls_ods_stge_material",
-        "my_shell_activity7": "wkf_bp_kpisls_ods_stgm_material",
-        "my_shell_activity8": "wkf_bp_kpisls_ods_stgt_pre_invoice_line",
-        "my_shell_activity9": "wkf_bp_kpisls_step2_ods_stgm_material_location",
-        "my_shell_activity10": "wkf_bp_kpisls_step3_ods_stgm_material_location",
-        "my_shell_activity11": "wkf_bp_kpisls_step5_ods_stgm_material",
-        "my_shell_activity12": "wkf_bp_mstr_customer_ods_stgm_customer",
-        "my_shell_activity13": "wkf_bp_mstr_material_location_ods_stgm_material_location",
-        "my_shell_activity14": "wkf_bp_mstr_material_ods_stge_customer",
-        "my_shell_activity15": "wkf_bp_mstr_material_ods_stge_material",
-        "my_shell_activity16": "wkf_bp_mstr_material_ods_stgm_material",
-        "my_shell_activity17": "wkf_bp_mstr_material_uom_ods_stgc_material_uom",
-        "my_shell_activity18": "wkf_bp_occalc_imml01_ods_stge_material",
-        "my_shell_activity19": "wkf_bp_sirf1_ods_stgm_material",
-        "my_shell_activity20": "wkf_bp_stgt_shipment_vw_fco_tms_extract_ods_stge_invoice_line",
-        "my_shell_activity21": "wkf_bp_stgt_shipment_vw_fco_tms_extract_ods_stgt_invoice_line",
-        "my_shell_activity22": "wkf_bp_stgt_shipment_vw_ods_stge_invoice_line",
-        "my_shell_activity23": "wkf_bp_stgt_shipment_vw_ods_stgt_invoice_line",
-        "my_shell_activity24": "wkf_bp_tran_invoice_header_ods_stgt_invoice_header",
-        "my_shell_activity25": "wkf_bp_tran_invoice_line_ods_stgt_invoice_line",
-        "my_shell_activity26": "wkf_bp_tran_invoice_line_step1_kpisls_ods_stgt_invoice_line",
-        "my_shell_activity27": "wkf_bp_tran_invoice_line_step1_ods_stge_invoice_line",
-        "my_shell_activity28": "wkf_bp_zccm02_iiml01_ods_stgm_material",
-        "my_shell_activity29": "wkf_bp_zccm02_ods_stge_material",
-        "my_shell_activity30": "wkf_bp_zccm02_step4_ods_stgm_material_location"
-    }
+    ]
 }
