@@ -62,7 +62,9 @@ resource "aws_iam_role_policy" "glue_s3_access_policy" {
         "arn:aws:s3:::${data.aws_s3_bucket.project_system_bucket.id}",
         "arn:aws:s3:::${data.aws_s3_bucket.project_system_bucket.id}/*",
         "arn:aws:s3:::${data.aws_s3_bucket.project_datalake_bucket.id}",
-        "arn:aws:s3:::${data.aws_s3_bucket.project_datalake_bucket.id}/*"
+        "arn:aws:s3:::${data.aws_s3_bucket.project_datalake_bucket.id}/*",
+        "arn:aws:s3:::wrk-ingest-poc-dev",
+        "arn:aws:s3:::wrk-ingest-poc-dev/*"
       ]
     }
   ]

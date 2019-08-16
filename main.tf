@@ -177,7 +177,8 @@ data "template_file" "sqoop_landing_mstr1" {
     ppmrps_username = "slalom_user"
     ppmrps_password = "FoRnew#abc1"
     ppmrps_database = "dbo"
-    ppmrps_destination = "s3://wrk-ingest-${var.project}-dev"
+    # ppmrps_destination = "s3://wrk-ingest-${var.project}-dev"
+    ppmrps_destination = "s3://wrk-ingest-poc-dev"
     ppmrps_folder = "Landing/Mstr"
     ppmrps_number = "1"
     ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
@@ -222,7 +223,8 @@ data "template_file" "sqoop_landing_mstr2" {
     ppmrps_username = "slalom_user"
     ppmrps_password = "FoRnew#abc1"
     ppmrps_database = "dbo"
-    ppmrps_destination = "s3://wrk-ingest-${var.project}-dev"
+    # ppmrps_destination = "s3://wrk-ingest-${var.project}-dev"
+    ppmrps_destination = "s3://wrk-ingest-poc-dev"
     ppmrps_folder = "Landing/Mstr"
     ppmrps_number = "1"
     ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
@@ -255,7 +257,7 @@ EOF
 }
 
 resource "aws_datapipeline_pipeline" "sqoop_s3" {
-    name        = "ppm_sqoop_sqoop_s3_tf_${var.environment}"
+    name        = "ppm_sqoop_s3_tf_${var.environment}"
 }
 
 data "template_file" "sqoop_s3" {
@@ -292,7 +294,7 @@ EOF
 }
 
 resource "aws_datapipeline_pipeline" "sqoop_udus" {
-    name        = "ppm_sqoop_sqoop_udus_tf_${var.environment}"
+    name        = "ppm_sqoop_udus_tf_${var.environment}"
 }
 
 data "template_file" "sqoop_udus" {
@@ -414,6 +416,50 @@ EOF
   }
 }
 
+# resource "aws_datapipeline_pipeline" "MDMS_Curate_temp" {
+#     name        = "ppm_controller_MDMS_Curate_temp_tf_${var.environment}"
+# }
+
+# data "template_file" "MDMS_Curate_temp" {
+#   template = "${file("${path.module}/ppm_controller_MDMS_Curate_temp.template")}"
+#   vars = {
+#     ppm_system = "MDMS"
+#     ppm_emr_instance_type = "m5.2xlarge"
+#     ppm_emr_terminate_time = "1"
+#     ppm_emr_core_instance_count = "3"
+#     ppm_environment = var.environment
+#     # ppm_ingest_bucket = aws_s3_bucket.project_ingest_bucket.id
+#     # ppm_system_bucket = aws_s3_bucket.project_system_bucket.id
+#     # ppm_datalake_bucket = aws_s3_bucket.project_datalake_bucket.id
+#     # ppm_ingest_bucket = data.aws_s3_bucket.project_ingest_bucket.id
+#     ppm_ingest_bucket = "wrk-ingest-poc-dev"
+#     ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
+#     ppm_datalake_bucket = data.aws_s3_bucket.project_datalake_bucket.id
+#     ppm_emr_subnet = var.emr_subnet
+#     ppm_emr_master_sg = var.emr_master_sg
+#     ppm_emr_slave_sg = var.emr_slave_sg
+#     ppm_emr_service_sg = var.emr_service_sg
+#     ppm_emr_role = aws_iam_role.datapipeline_emr_role.name
+#     ppm_emr_resource_role = aws_iam_role.datapipeline_emr_resource_role.name
+#     ppm_emr_region = data.aws_region.current.name
+#   }
+# }
+
+# resource "null_resource" "update_MDMS_Curate_temp_datapipeline_definition" {
+#   triggers = {
+#     keys = "${uuid()}"
+#   }
+
+#   provisioner "local-exec" {
+#     command = <<EOF
+# aws datapipeline put-pipeline-definition \
+# --pipeline-id ${aws_datapipeline_pipeline.MDMS_Curate_temp.id} \
+# --pipeline-definition file://ppm_controller_MDMS_Curate_temp.json \
+# --parameter-values-uri '${data.template_file.MDMS_Curate_temp.rendered}' \
+# EOF
+#   }
+# }
+
 resource "aws_datapipeline_pipeline" "MDMS_Curate1" {
     name        = "ppm_controller_MDMS_Curate1_tf_${var.environment}"
 }
@@ -429,7 +475,8 @@ data "template_file" "MDMS_Curate1" {
     # ppm_ingest_bucket = aws_s3_bucket.project_ingest_bucket.id
     # ppm_system_bucket = aws_s3_bucket.project_system_bucket.id
     # ppm_datalake_bucket = aws_s3_bucket.project_datalake_bucket.id
-    ppm_ingest_bucket = data.aws_s3_bucket.project_ingest_bucket.id
+    # ppm_ingest_bucket = data.aws_s3_bucket.project_ingest_bucket.id
+    ppm_ingest_bucket = "wrk-ingest-poc-dev"
     ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
     ppm_datalake_bucket = data.aws_s3_bucket.project_datalake_bucket.id
     ppm_emr_subnet = var.emr_subnet
@@ -472,7 +519,8 @@ data "template_file" "MDMS_Curate2" {
     # ppm_ingest_bucket = aws_s3_bucket.project_ingest_bucket.id
     # ppm_system_bucket = aws_s3_bucket.project_system_bucket.id
     # ppm_datalake_bucket = aws_s3_bucket.project_datalake_bucket.id
-    ppm_ingest_bucket = data.aws_s3_bucket.project_ingest_bucket.id
+    # ppm_ingest_bucket = data.aws_s3_bucket.project_ingest_bucket.id
+    ppm_ingest_bucket = "wrk-ingest-poc-dev"
     ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
     ppm_datalake_bucket = data.aws_s3_bucket.project_datalake_bucket.id
     ppm_emr_subnet = var.emr_subnet
@@ -515,7 +563,8 @@ data "template_file" "MDMS_Curate3" {
     # ppm_ingest_bucket = aws_s3_bucket.project_ingest_bucket.id
     # ppm_system_bucket = aws_s3_bucket.project_system_bucket.id
     # ppm_datalake_bucket = aws_s3_bucket.project_datalake_bucket.id
-    ppm_ingest_bucket = data.aws_s3_bucket.project_ingest_bucket.id
+    # ppm_ingest_bucket = data.aws_s3_bucket.project_ingest_bucket.id
+    ppm_ingest_bucket = "wrk-ingest-poc-dev"
     ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
     ppm_datalake_bucket = data.aws_s3_bucket.project_datalake_bucket.id
     ppm_emr_subnet = var.emr_subnet
@@ -558,7 +607,8 @@ data "template_file" "MDMS_XRef1" {
     # ppm_ingest_bucket = aws_s3_bucket.project_ingest_bucket.id
     # ppm_system_bucket = aws_s3_bucket.project_system_bucket.id
     # ppm_datalake_bucket = aws_s3_bucket.project_datalake_bucket.id
-    ppm_ingest_bucket = data.aws_s3_bucket.project_ingest_bucket.id
+    # ppm_ingest_bucket = data.aws_s3_bucket.project_ingest_bucket.id
+    ppm_ingest_bucket = "wrk-ingest-poc-dev"
     ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
     ppm_datalake_bucket = data.aws_s3_bucket.project_datalake_bucket.id
     ppm_emr_subnet = var.emr_subnet
@@ -773,7 +823,8 @@ data "template_file" "S3" {
     # ppm_ingest_bucket = aws_s3_bucket.project_ingest_bucket.id
     # ppm_system_bucket = aws_s3_bucket.project_system_bucket.id
     # ppm_datalake_bucket = aws_s3_bucket.project_datalake_bucket.id
-    ppm_ingest_bucket = data.aws_s3_bucket.project_ingest_bucket.id
+    # ppm_ingest_bucket = data.aws_s3_bucket.project_ingest_bucket.id
+    ppm_ingest_bucket = "wrk-ingest-poc-dev"
     ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
     ppm_datalake_bucket = data.aws_s3_bucket.project_datalake_bucket.id
     ppm_emr_subnet = var.emr_subnet

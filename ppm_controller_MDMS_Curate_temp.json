@@ -75,7 +75,7 @@
             "releaseLabel": "emr-5.19.0",
             "terminateAfter": "#{my_emr_terminate_after} Hours",
             "hadoopSchedulerType": "PARALLEL_FAIR_SCHEDULING",
-            "bootstrapAction": "s3://#{my_system_bucket}/Config/emrBootstrap_py36_v3.sh",
+            "bootstrapAction": "s3://#{my_system_bucket}/Config/emrBootstrap_py36.sh",
             "keyPair": "#{my_system_bucket}1",
             "region": "#{my_emr_region}",
             "applications": [
@@ -84,13 +84,58 @@
             ]
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_1",
-            "name": "My Shell Activity 1",
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_1",
+            "name": "My Shell Table Staging 1",
             "type": "ShellCommandActivity",
-            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/#{my_sqoop_script}",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
-            }
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity1}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity1}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity1}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_2",
+            "name": "My Shell Table Staging 2",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity2}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity2}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity2}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_3",
+            "name": "My Shell Table Staging 3",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity3}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity3}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity3}"
         },
         {
             "id": "Default",
@@ -104,11 +149,23 @@
     ],
     "parameters": [
         {
+            "id": "my_environment",
+            "type": "string"
+        },
+        {
             "id": "my_system_bucket",
             "type": "string"
         },
         {
-            "id": "my_sqoop_script",
+            "id": "my_ingest_bucket",
+            "type": "string"
+        },
+        {
+            "id": "my_datalake_bucket",
+            "type": "string"
+        },
+        {
+            "id": "my_systems",
             "type": "string"
         },
         {
@@ -153,6 +210,18 @@
         },
         {
             "id": "my_emr_resource_role",
+            "type": "string"
+        },
+        {
+            "id": "my_table_activity1",
+            "type": "string"
+        },
+        {
+            "id": "my_table_activity2",
+            "type": "string"
+        },
+        {
+            "id": "my_table_activity3",
             "type": "string"
         }
     ]

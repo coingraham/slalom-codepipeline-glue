@@ -1620,70 +1620,6 @@
             "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_curate_#{my_table_activity24}"
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_Table_Staging_25",
-            "name": "My Shell Table Staging 25",
-            "type": "ShellCommandActivity",
-            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_stg_#{my_table_activity25}.py",
-                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
-                "#{my_datalake_bucket}",
-                "#{my_ingest_bucket}",
-                "#{my_system_bucket}"
-            ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_stg_#{my_table_activity25}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_stg_#{my_table_activity25}"
-        },
-        {
-            "id": "ShellActivityId_My_Shell_Activity_Table_Trans_25",
-            "name": "My Shell Table Transaction 25",
-            "dependsOn": [
-              {
-                "ref": "ShellActivityId_My_Shell_Activity_Table_Staging_25"
-              }
-            ],
-            "type": "ShellCommandActivity",
-            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_trans_#{my_table_activity25}.py",
-                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
-                "#{my_datalake_bucket}",
-                "#{my_ingest_bucket}",
-                "#{my_system_bucket}"
-            ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_trans_#{my_table_activity25}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_trans_#{my_table_activity25}"
-        },
-        {
-            "id": "ShellActivityId_My_Shell_Activity_Table_Curate_25",
-            "name": "My Shell Table Curated 25",
-            "dependsOn": [
-              {
-                "ref": "ShellActivityId_My_Shell_Activity_Table_Trans_25"
-              }
-            ],
-            "type": "ShellCommandActivity",
-            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/mdms_curate_#{my_table_activity25}.py",
-                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
-                "#{my_datalake_bucket}",
-                "#{my_ingest_bucket}",
-                "#{my_system_bucket}"
-            ],
-            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/mdms_curate_#{my_table_activity25}",
-            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/mdms_curate_#{my_table_activity25}"
-        },
-        {
             "id": "Default",
             "name": "Default",
             "scheduleType": "ONDEMAND",
@@ -1852,10 +1788,6 @@
         },
         {
             "id": "my_table_activity24",
-            "type": "string"
-        },
-        {
-            "id": "my_table_activity25",
             "type": "string"
         }
     ]
