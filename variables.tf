@@ -14,6 +14,11 @@ variable "emr_subnet" {
   type        = "string"
 }
 
+variable "sqoop_emr_subnet" {
+  description = "The workspace to refrence for state files"
+  type        = "string"
+}
+
 variable "emr_master_sg" {
   description = "The workspace to refrence for state files"
   type        = "string"

@@ -1,0 +1,159 @@
+{
+    "objects": [
+        {
+            "id": "PropertyId_python_path",
+            "name": "Python Path",
+            "type": "Property",
+            "value": "/usr/local/bin:$PATH",
+            "key": "PATH"
+        },
+        {
+            "id": "PropertyId_pyspark_python",
+            "name": "PySpark Python",
+            "type": "Property",
+            "value": "/usr/bin/python3.6",
+            "key": "PYSPARK_PYTHON"
+        },
+        {
+            "id": "EmrConfigurationId_export_path_vars",
+            "name": "Export Path Variables",
+            "type": "EmrConfiguration",
+            "property": [
+                {
+                    "ref": "PropertyId_python_path"
+                },
+                {
+                    "ref": "PropertyId_pyspark_python"
+                }
+            ],
+            "classification": "export"
+        },
+        {
+            "id": "EmrConfigurationId_spark_hive_site",
+            "name": "Spark Hive Site",
+            "type": "EmrConfiguration",
+            "property": {
+                "ref": "PropertyId_hive_metastore"
+            },
+            "classification": "spark-hive-site"
+        },
+        {
+            "id": "PropertyId_hive_metastore",
+            "name": "Hive Metastore",
+            "type": "Property",
+            "value": "com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory",
+            "key": "hive.metastore.client.factory.class"
+        },
+        {
+            "id": "EmrConfigurationId_spark_env",
+            "name": "Spark Env",
+            "type": "EmrConfiguration",
+            "configuration": {
+                "ref": "EmrConfigurationId_export_path_vars"
+            },
+            "classification": "spark-env"
+        },
+        {
+            "id": "EmrClusterId_ppm",
+            "name": "EMR Cluster",
+            "type": "EmrCluster",
+            "subnetId": "#{my_emr_subnet_id}",
+            "emrManagedMasterSecurityGroupId": "#{my_emr_master_security_group_id}",
+            "emrManagedSlaveSecurityGroupId": "#{my_emr_slave_security_group_id}",
+            "serviceAccessSecurityGroupId": "#{my_emr_service_access_security_group_id}",
+            "masterInstanceType": "#{my_emr_master_instance_type}",
+            "coreInstanceType": "#{my_emr_core_instance_type}",
+            "configuration": [
+                {
+                    "ref": "EmrConfigurationId_spark_hive_site"
+                },
+                {
+                    "ref": "EmrConfigurationId_spark_env"
+                }
+            ],
+            "coreInstanceCount": "#{my_emr_instance_core_count}",
+            "releaseLabel": "emr-5.19.0",
+            "terminateAfter": "#{my_emr_terminate_after} Hours",
+            "hadoopSchedulerType": "PARALLEL_FAIR_SCHEDULING",
+            "bootstrapAction": "s3://#{my_system_bucket}/Config/emrBootstrap_py36.sh",
+            "keyPair": "#{my_system_bucket}1",
+            "region": "#{my_emr_region}",
+            "applications": [
+                "Spark",
+                "Sqoop"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_1",
+            "name": "My Shell Activity 1",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/#{my_sqoop_script}",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            }
+        },
+        {
+            "id": "Default",
+            "name": "Default",
+            "scheduleType": "ONDEMAND",
+            "failureAndRerunMode": "CASCADE",
+            "role": "#{my_emr_role}",
+            "resourceRole": "#{my_emr_resource_role}",
+            "pipelineLogUri": "s3://#{my_system_bucket}/Logs/DataPipeline/"
+        }
+    ],
+    "parameters": [
+        {
+            "id": "my_system_bucket",
+            "type": "string"
+        },
+        {
+            "id": "my_sqoop_script",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_subnet_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_master_security_group_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_slave_security_group_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_service_access_security_group_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_master_instance_type",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_core_instance_type",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_instance_core_count",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_terminate_after",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_region",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_role",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_resource_role",
+            "type": "string"
+        }
+    ]
+}

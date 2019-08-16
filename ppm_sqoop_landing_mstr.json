@@ -1,0 +1,929 @@
+{
+    "objects": [
+        {
+            "id": "PropertyId_python_path",
+            "name": "Python Path",
+            "type": "Property",
+            "value": "/usr/local/bin:$PATH",
+            "key": "PATH"
+        },
+        {
+            "id": "PropertyId_pyspark_python",
+            "name": "PySpark Python",
+            "type": "Property",
+            "value": "/usr/bin/python3.6",
+            "key": "PYSPARK_PYTHON"
+        },
+        {
+            "id": "EmrConfigurationId_export_path_vars",
+            "name": "Export Path Variables",
+            "type": "EmrConfiguration",
+            "property": [
+                {
+                    "ref": "PropertyId_python_path"
+                },
+                {
+                    "ref": "PropertyId_pyspark_python"
+                }
+            ],
+            "classification": "export"
+        },
+        {
+            "id": "EmrConfigurationId_spark_hive_site",
+            "name": "Spark Hive Site",
+            "type": "EmrConfiguration",
+            "property": {
+                "ref": "PropertyId_hive_metastore"
+            },
+            "classification": "spark-hive-site"
+        },
+        {
+            "id": "PropertyId_hive_metastore",
+            "name": "Hive Metastore",
+            "type": "Property",
+            "value": "com.amazonaws.glue.catalog.metastore.AWSGlueDataCatalogHiveClientFactory",
+            "key": "hive.metastore.client.factory.class"
+        },
+        {
+            "id": "EmrConfigurationId_spark_env",
+            "name": "Spark Env",
+            "type": "EmrConfiguration",
+            "configuration": {
+                "ref": "EmrConfigurationId_export_path_vars"
+            },
+            "classification": "spark-env"
+        },
+        {
+            "id": "EmrClusterId_ppm",
+            "name": "EMR Cluster",
+            "type": "EmrCluster",
+            "subnetId": "#{my_emr_subnet_id}",
+            "emrManagedMasterSecurityGroupId": "#{my_emr_master_security_group_id}",
+            "emrManagedSlaveSecurityGroupId": "#{my_emr_slave_security_group_id}",
+            "serviceAccessSecurityGroupId": "#{my_emr_service_access_security_group_id}",
+            "masterInstanceType": "#{my_emr_master_instance_type}",
+            "coreInstanceType": "#{my_emr_core_instance_type}",
+            "configuration": [
+                {
+                    "ref": "EmrConfigurationId_spark_hive_site"
+                },
+                {
+                    "ref": "EmrConfigurationId_spark_env"
+                }
+            ],
+            "coreInstanceCount": "#{my_emr_instance_core_count}",
+            "releaseLabel": "emr-5.19.0",
+            "terminateAfter": "#{my_emr_terminate_after} Hours",
+            "hadoopSchedulerType": "PARALLEL_FAIR_SCHEDULING",
+            "bootstrapAction": "s3://#{my_system_bucket}/Config/emrBootstrap_py36.sh",
+            "keyPair": "#{my_system_bucket}1",
+            "region": "#{my_emr_region}",
+            "applications": [
+                "Spark",
+                "Sqoop"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_1",
+            "name": "My Shell Activity 1",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table1}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_2",
+            "name": "My Shell Activity 2",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_1"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table2}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_3",
+            "name": "My Shell Activity 3",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_2"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table3}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_4",
+            "name": "My Shell Activity 4",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_3"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table4}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_5",
+            "name": "My Shell Activity 5",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_4"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table5}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_6",
+            "name": "My Shell Activity 6",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_5"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table6}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_7",
+            "name": "My Shell Activity 7",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_6"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table7}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_8",
+            "name": "My Shell Activity 8",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_7"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table8}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_9",
+            "name": "My Shell Activity 9",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_8"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table9}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_10",
+            "name": "My Shell Activity 10",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table10}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_11",
+            "name": "My Shell Activity 11",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_10"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table11}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_12",
+            "name": "My Shell Activity 12",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_11"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table12}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_13",
+            "name": "My Shell Activity 13",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_12"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table13}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_14",
+            "name": "My Shell Activity 14",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_13"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table14}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_15",
+            "name": "My Shell Activity 15",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_14"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table15}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_16",
+            "name": "My Shell Activity 16",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_15"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table16}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_17",
+            "name": "My Shell Activity 17",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_16"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table17}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_18",
+            "name": "My Shell Activity 18",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_17"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table18}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_19",
+            "name": "My Shell Activity 19",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_18"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table19}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_20",
+            "name": "My Shell Activity 20",
+            "type": "ShellCommandActivity",
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table20}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_21",
+            "name": "My Shell Activity 21",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_20"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table21}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_22",
+            "name": "My Shell Activity 22",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_21"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table22}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_23",
+            "name": "My Shell Activity 23",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_22"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table23}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_24",
+            "name": "My Shell Activity 24",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_23"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table24}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_25",
+            "name": "My Shell Activity 25",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_24"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table25}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_26",
+            "name": "My Shell Activity 26",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_25"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table26}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_27",
+            "name": "My Shell Activity 27",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_26"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table27}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_28",
+            "name": "My Shell Activity 28",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_27"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table28}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_29",
+            "name": "My Shell Activity 29",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_28"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "#{my_jdbc}",
+                "#{my_connection}",
+                "#{my_hostname}",
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_database}",
+                "#{my_table29}",
+                "#{my_destination}",
+                "#{my_folder}",
+                "#{my_number}"
+            ]
+        },
+        {
+            "id": "Default",
+            "name": "Default",
+            "scheduleType": "ONDEMAND",
+            "failureAndRerunMode": "CASCADE",
+            "role": "#{my_emr_role}",
+            "resourceRole": "#{my_emr_resource_role}",
+            "pipelineLogUri": "s3://#{my_system_bucket}/Logs/DataPipeline/"
+        }
+    ],
+    "parameters": [
+        {
+            "id": "my_jdbc",
+            "type": "string"
+        },
+        {
+            "id": "my_connection",
+            "type": "string"
+        },
+        {
+            "id": "my_hostname",
+            "type": "string"
+        },
+        {
+            "id": "my_username",
+            "type": "string"
+        },
+        {
+            "id": "*my_password",
+            "type": "string"
+        },
+        {
+            "id": "my_database",
+            "type": "string"
+        },
+        {
+            "id": "my_destination",
+            "type": "string"
+        },
+        {
+            "id": "my_folder",
+            "type": "string"
+        },
+        {
+            "id": "my_number",
+            "type": "string"
+        },
+        {
+            "id": "my_system_bucket",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_subnet_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_master_security_group_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_slave_security_group_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_service_access_security_group_id",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_master_instance_type",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_core_instance_type",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_instance_core_count",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_terminate_after",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_region",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_role",
+            "type": "string"
+        },
+        {
+            "id": "my_emr_resource_role",
+            "type": "string"
+        },
+        {
+            "id": "my_table1",
+            "type": "string"
+        },
+        {
+            "id": "my_table2",
+            "type": "string"
+        }
+    ]
+}
