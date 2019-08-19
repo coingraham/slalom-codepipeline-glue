@@ -16,8 +16,23 @@
         "my_emr_region": "${ppm_emr_region}",
         "my_emr_role": "${ppm_emr_role}",
         "my_emr_resource_role": "${ppm_emr_resource_role}",
-        "my_table_activity1": "top_product_level",
-        "my_table_activity2": "uom",
-        "my_table_activity3": "uom_type"
+        "my_shell_activity1": "aaaa",
+        "my_shell_activity2": "aaaa",
+        "my_shell_activity3": "aaaa",
+        "my_shell_activity4": "aaaa",
+        "my_shell_activity5": "aaaa",
+        "my_shell_activity6": "aaaa",
+        "my_shell_activity7": "aaaa",
+        "my_shell_activity8": "aaaa",
+        "my_shell_activity9": "aaaa",
+        "my_shell_activity10": "aaaa",
+        "my_shell_activity11": "aaaa",
+        "my_shell_activity12": "aaaa",
+        "my_shell_activity13": "aaaa",
+        "my_shell_activity14": "aaaa",
+        "my_shell_activity15": "aaaa",
+        "my_shell_activity16": "aaaa",
+        "my_shell_activity17": "aaaa",
+        "my_shell_activity18": "aaaa"
     }
 }
