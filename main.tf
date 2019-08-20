@@ -25,6 +25,114 @@ data "aws_s3_bucket" "project_system_bucket" {
 # Resources
 ############
 
+resource "aws_ssm_parameter" "ppm_mstr_database_username" {
+  name        = "/${var.environment}/ppm_mstr_database/username"
+  description = "The ppm master data tables database SQL Server username"
+  type        = "SecureString"
+  value       = "stub"
+
+  # Ignore changes to the stub value.  We'll update the password manually.
+  lifecycle {
+    ignore_changes = [
+      value
+    ]
+  }
+
+  tags = {
+    environment = "${var.environment}"
+  }
+}
+
+resource "aws_ssm_parameter" "ppm_mstr_database_password" {
+  name        = "/${var.environment}/ppm_mstr_database/password"
+  description = "The ppm master data tables database SQL Server password"
+  type        = "SecureString"
+  value       = "stub"
+
+  # Ignore changes to the stub value.  We'll update the password manually.
+  lifecycle {
+    ignore_changes = [
+      value
+    ]
+  }
+
+  tags = {
+    environment = "${var.environment}"
+  }
+}
+
+resource "aws_ssm_parameter" "ppm_s3_database_username" {
+  name        = "/${var.environment}/ppm_s3_database/username"
+  description = "The ppm s3 data tables database DB2 username"
+  type        = "SecureString"
+  value       = "stub"
+
+  # Ignore changes to the stub value.  We'll update the password manually.
+  lifecycle {
+    ignore_changes = [
+      value
+    ]
+  }
+
+  tags = {
+    environment = "${var.environment}"
+  }
+}
+
+resource "aws_ssm_parameter" "ppm_s3_database_password" {
+  name        = "/${var.environment}/ppm_s3_database/password"
+  description = "The ppm s3 data tables database DB2 password"
+  type        = "SecureString"
+  value       = "stub"
+
+  # Ignore changes to the stub value.  We'll update the password manually.
+  lifecycle {
+    ignore_changes = [
+      value
+    ]
+  }
+
+  tags = {
+    environment = "${var.environment}"
+  }
+}
+
+resource "aws_ssm_parameter" "ppm_ud_database_username" {
+  name        = "/${var.environment}/ppm_ud_database/username"
+  description = "The ppm ud data tables database SQL Server username"
+  type        = "SecureString"
+  value       = "stub"
+
+  # Ignore changes to the stub value.  We'll update the password manually.
+  lifecycle {
+    ignore_changes = [
+      value
+    ]
+  }
+
+  tags = {
+    environment = "${var.environment}"
+  }
+}
+
+resource "aws_ssm_parameter" "ppm_ud_database_password" {
+  name        = "/${var.environment}/ppm_ud_database/password"
+  description = "The ppm ud data tables database SQL Server password"
+  type        = "SecureString"
+  value       = "stub"
+
+  # Ignore changes to the stub value.  We'll update the password manually.
+  lifecycle {
+    ignore_changes = [
+      value
+    ]
+  }
+
+  tags = {
+    environment = "${var.environment}"
+  }
+}
+
 # # Bucket for datalake files
 # resource "aws_s3_bucket" "project_datalake_bucket" {
 #   bucket = "wrk-${var.project}-datalake-${var.environment}"
@@ -122,7 +230,7 @@ resource "aws_glue_crawler" "ods_transform" {
   role          = "${aws_iam_role.glue_role.arn}"
 
   s3_target {
-    # path = "s3://${aws_s3_bucket.project_datalake_bucket.bucket}"
+    # path = "s3://${aws_s3_bucket.project_datalake_bucket.bucket}/Transformed"
     path = "s3://wrk-datalake-ppm-dev/Transformed"
     exclusions = [
       "**/_SUCCESS"
@@ -174,8 +282,8 @@ data "template_file" "sqoop_landing_mstr1" {
     ppmrps_jdbc = "jdbc:sqlserver"
     ppmrps_connection = "10.1.149.47:3221"
     ppmrps_hostname = "MDMSD"
-    ppmrps_username = "slalom_user"
-    ppmrps_password = "FoRnew#abc1"
+    ppmrps_username = aws_ssm_parameter.ppm_mstr_database_username.value
+    ppmrps_password = aws_ssm_parameter.ppm_mstr_database_password.value
     ppmrps_database = "dbo"
     # ppmrps_destination = "s3://wrk-ingest-${var.project}-dev"
     ppmrps_destination = "s3://wrk-ingest-poc-dev"
@@ -198,10 +306,10 @@ data "template_file" "sqoop_landing_mstr1" {
 resource "null_resource" "update_sqoop_landing_mstr1_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    # datapipeline_id = "${uuid()}"
+    datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    datapipeline_id = "df-07215721W4ATUGA5LR90"
+    # datapipeline_id = "df-07215721W4ATUGA5LR90"
   }
 
   provisioner "local-exec" {
@@ -224,8 +332,8 @@ data "template_file" "sqoop_landing_mstr2" {
     ppmrps_jdbc = "jdbc:sqlserver"
     ppmrps_connection = "10.1.149.47:3221"
     ppmrps_hostname = "MDMSD"
-    ppmrps_username = "slalom_user"
-    ppmrps_password = "FoRnew#abc1"
+    ppmrps_username = aws_ssm_parameter.ppm_mstr_database_username.value
+    ppmrps_password = aws_ssm_parameter.ppm_mstr_database_password.value
     ppmrps_database = "dbo"
     # ppmrps_destination = "s3://wrk-ingest-${var.project}-dev"
     ppmrps_destination = "s3://wrk-ingest-poc-dev"
@@ -248,10 +356,10 @@ data "template_file" "sqoop_landing_mstr2" {
 resource "null_resource" "update_sqoop_landing_mstr2_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    # datapipeline_id = "${uuid()}"
+    datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    datapipeline_id = "df-09394738FOB8V6L6GWA"
+    # datapipeline_id = "df-09394738FOB8V6L6GWA"
   }
 
   provisioner "local-exec" {
@@ -260,6 +368,106 @@ aws datapipeline put-pipeline-definition \
 --pipeline-id ${aws_datapipeline_pipeline.sqoop_landing_mstr2.id} \
 --pipeline-definition file://datapipelines/ppm_sqoop_landing_mstr2_definition.json \
 --parameter-values-uri '${data.template_file.sqoop_landing_mstr2.rendered}' \
+EOF
+  }
+}
+
+resource "aws_datapipeline_pipeline" "sqoop_landing_mstr3" {
+    name        = "ppm_sqoop_landing_mstr3_tf_${var.environment}"
+}
+
+data "template_file" "sqoop_landing_mstr3" {
+  template = "${file("${path.module}/datapipelines/ppm_sqoop_landing_mstr3_values.json")}"
+  vars = {
+    ppmrps_jdbc = "jdbc:sqlserver"
+    ppmrps_connection = "10.1.149.47:3221"
+    ppmrps_hostname = "MDMSD"
+    ppmrps_username = aws_ssm_parameter.ppm_mstr_database_username.value
+    ppmrps_password = aws_ssm_parameter.ppm_mstr_database_password.value
+    ppmrps_database = "dbo"
+    # ppmrps_destination = "s3://wrk-ingest-${var.project}-dev"
+    ppmrps_destination = "s3://wrk-ingest-poc-dev"
+    ppmrps_folder = "Landing/Mstr"
+    ppmrps_number = "1"
+    ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
+    ppm_emr_subnet = var.sqoop_emr_subnet
+    ppm_emr_master_sg = var.emr_master_sg
+    ppm_emr_slave_sg = var.emr_slave_sg
+    ppm_emr_service_sg = var.emr_service_sg
+    ppm_emr_role = aws_iam_role.datapipeline_emr_role.name
+    ppm_emr_resource_role = aws_iam_role.datapipeline_emr_resource_role.name
+    ppm_emr_region = data.aws_region.current.name
+    ppm_emr_instance_type = "m5.2xlarge"
+    ppm_emr_terminate_time = "1"
+    ppm_emr_core_instance_count = "1"
+  }
+}
+
+resource "null_resource" "update_sqoop_landing_mstr3_datapipeline_definition" {
+  triggers = {
+    # Uncomment the below if you want this to run every time
+    datapipeline_id = "${uuid()}"
+
+    # Uncomment the below and the definition update won't run every time
+    # datapipeline_id = "df-0032992YD2CK16SKRSK"
+  }
+
+  provisioner "local-exec" {
+    command = <<EOF
+aws datapipeline put-pipeline-definition \
+--pipeline-id ${aws_datapipeline_pipeline.sqoop_landing_mstr3.id} \
+--pipeline-definition file://datapipelines/ppm_sqoop_landing_mstr3_definition.json \
+--parameter-values-uri '${data.template_file.sqoop_landing_mstr3.rendered}' \
+EOF
+  }
+}
+
+resource "aws_datapipeline_pipeline" "sqoop_landing_mstr4" {
+    name        = "ppm_sqoop_landing_mstr4_tf_${var.environment}"
+}
+
+data "template_file" "sqoop_landing_mstr4" {
+  template = "${file("${path.module}/datapipelines/ppm_sqoop_landing_mstr4_values.json")}"
+  vars = {
+    ppmrps_jdbc = "jdbc:sqlserver"
+    ppmrps_connection = "10.1.149.47:3221"
+    ppmrps_hostname = "MDMSD"
+    ppmrps_username = aws_ssm_parameter.ppm_mstr_database_username.value
+    ppmrps_password = aws_ssm_parameter.ppm_mstr_database_password.value
+    ppmrps_database = "dbo"
+    # ppmrps_destination = "s3://wrk-ingest-${var.project}-dev"
+    ppmrps_destination = "s3://wrk-ingest-poc-dev"
+    ppmrps_folder = "Landing/Mstr"
+    ppmrps_number = "1"
+    ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
+    ppm_emr_subnet = var.sqoop_emr_subnet
+    ppm_emr_master_sg = var.emr_master_sg
+    ppm_emr_slave_sg = var.emr_slave_sg
+    ppm_emr_service_sg = var.emr_service_sg
+    ppm_emr_role = aws_iam_role.datapipeline_emr_role.name
+    ppm_emr_resource_role = aws_iam_role.datapipeline_emr_resource_role.name
+    ppm_emr_region = data.aws_region.current.name
+    ppm_emr_instance_type = "m5.2xlarge"
+    ppm_emr_terminate_time = "1"
+    ppm_emr_core_instance_count = "1"
+  }
+}
+
+resource "null_resource" "update_sqoop_landing_mstr4_datapipeline_definition" {
+  triggers = {
+    # Uncomment the below if you want this to run every time
+    datapipeline_id = "${uuid()}"
+
+    # Uncomment the below and the definition update won't run every time
+    # datapipeline_id = "df-074196015CC50A1M32P5"
+  }
+
+  provisioner "local-exec" {
+    command = <<EOF
+aws datapipeline put-pipeline-definition \
+--pipeline-id ${aws_datapipeline_pipeline.sqoop_landing_mstr4.id} \
+--pipeline-definition file://datapipelines/ppm_sqoop_landing_mstr4_definition.json \
+--parameter-values-uri '${data.template_file.sqoop_landing_mstr4.rendered}' \
 EOF
   }
 }
@@ -273,6 +481,12 @@ data "template_file" "sqoop_s3" {
   vars = {
     ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
     ppm_sqoop_script = "wkf_S3_DB2TABLE_FMS_S3_FLATFILE.sh"
+    ppm_database_username = aws_ssm_parameter.ppm_s3_database_username.value
+    ppm_database_password = aws_ssm_parameter.ppm_s3_database_password.value
+    # ppm_destination_bucket = "s3://wrk-ingest-${var.project}-dev"
+    ppm_destination_bucket = "wrk-ingest-poc-dev"
+    ppm_filter_v_YEAR = "2019"
+    ppm_filter_v_MONTH = "07"
     ppm_emr_subnet = var.sqoop_emr_subnet
     ppm_emr_master_sg = var.emr_master_sg
     ppm_emr_slave_sg = var.emr_slave_sg
@@ -289,10 +503,10 @@ data "template_file" "sqoop_s3" {
 resource "null_resource" "update_sqoop_s3_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    # datapipeline_id = "${uuid()}"
+    datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    datapipeline_id = "df-05178513IS3S07RSGBLX"
+    # datapipeline_id = "df-05178513IS3S07RSGBLX"
   }
 
   provisioner "local-exec" {
@@ -315,6 +529,10 @@ data "template_file" "sqoop_udus" {
     ppm_system_bucket = data.aws_s3_bucket.project_system_bucket.id
     ppm_sqoop_script = "wkf_UDUS_MSSQL_FMS_FLATFILE.sh"
     ppm_emr_subnet = var.sqoop_emr_subnet
+    ppm_database_username = aws_ssm_parameter.ppm_ud_database_username.value
+    ppm_database_password = aws_ssm_parameter.ppm_ud_database_password.value
+    # ppm_destination_bucket = "s3://wrk-ingest-${var.project}-dev"
+    ppm_destination_bucket = "wrk-ingest-poc-dev"
     ppm_emr_master_sg = var.emr_master_sg
     ppm_emr_slave_sg = var.emr_slave_sg
     ppm_emr_service_sg = var.emr_service_sg
@@ -330,10 +548,10 @@ data "template_file" "sqoop_udus" {
 resource "null_resource" "update_sqoop_udus_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    # datapipeline_id = "${uuid()}"
+    datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    datapipeline_id = "df-00617841ZO91R7CRG0U8"
+    # datapipeline_id = "df-00617841ZO91R7CRG0U8"
   }
 
   provisioner "local-exec" {
@@ -472,10 +690,10 @@ data "template_file" "MDMS_Curate1" {
 resource "null_resource" "update_MDMS_Curate1_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    # datapipeline_id = "${uuid()}"
+    datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    datapipeline_id = "df-0964971350WZ99DNE0T7"
+    # datapipeline_id = "df-0964971350WZ99DNE0T7"
   }
 
   provisioner "local-exec" {
@@ -520,10 +738,10 @@ data "template_file" "MDMS_Curate2" {
 resource "null_resource" "update_MDMS_Curate2_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    # datapipeline_id = "${uuid()}"
+    datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    datapipeline_id = "df-09936103K5UIWTZKQEJH"
+    # datapipeline_id = "df-09936103K5UIWTZKQEJH"
   }
 
   provisioner "local-exec" {
@@ -568,10 +786,10 @@ data "template_file" "MDMS_Curate3" {
 resource "null_resource" "update_MDMS_Curate3_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    # datapipeline_id = "${uuid()}"
+    datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    datapipeline_id = "df-0743082REFFMRUJLHIO"
+    # datapipeline_id = "df-0743082REFFMRUJLHIO"
   }
 
   provisioner "local-exec" {
@@ -757,10 +975,10 @@ data "template_file" "UD" {
 resource "null_resource" "update_UD_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    datapipeline_id = "${uuid()}"
+    # datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    # datapipeline_id = ""
+    datapipeline_id = "UPDATE ME"
   }
 
   provisioner "local-exec" {

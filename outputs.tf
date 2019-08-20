@@ -11,6 +11,14 @@ output "sqoop_landing_mstr2_datapipeline_id" {
   value = aws_datapipeline_pipeline.sqoop_landing_mstr2.id
 }
 
+output "sqoop_landing_mstr3_datapipeline_id" {
+  value = aws_datapipeline_pipeline.sqoop_landing_mstr3.id
+}
+
+output "sqoop_landing_mstr4_datapipeline_id" {
+  value = aws_datapipeline_pipeline.sqoop_landing_mstr4.id
+}
+
 output "sqoop_s3_datapipeline_id" {
   value = aws_datapipeline_pipeline.sqoop_s3.id
 }

@@ -90,7 +90,12 @@
             "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/#{my_sqoop_script}",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
-            }
+            },
+            "scriptArgument": [
+                "#{my_username}",
+                "#{*my_password}",
+                "#{my_bucket}"
+            ]
         },
         {
             "id": "Default",
@@ -109,6 +114,18 @@
         },
         {
             "id": "my_sqoop_script",
+            "type": "string"
+        },
+        {
+            "id": "my_username",
+            "type": "string"
+        },
+        {
+            "id": "*my_password",
+            "type": "string"
+        },
+        {
+            "id": "my_bucket",
             "type": "string"
         },
         {

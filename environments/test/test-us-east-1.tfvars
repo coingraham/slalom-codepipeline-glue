@@ -8,7 +8,9 @@ terraform_workspace = "test-us-east-1"
 
 emr_subnet = "subnet-e386e6cc"
 
-sqoop_emr_subnet = "subnet-6b4b2f36"
+# sqoop_emr_subnet = "subnet-6b4b2f36"
+
+sqoop_emr_subnet = "subnet-e386e6cc"
 
 emr_master_sg = "sg-096205745f33db931"
 
