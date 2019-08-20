@@ -112,75 +112,93 @@
     "parameters": [
         {
             "id": "my_system_bucket",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_system_bucket}"
         },
         {
             "id": "my_sqoop_script",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_sqoop_script}"
         },
         {
             "id": "my_username",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_database_username}"
         },
         {
             "id": "*my_password",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_database_password}"
         },
         {
             "id": "my_bucket",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_destination_bucket}"
         },
         {
             "id": "my_v_YEAR",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_filter_v_YEAR}"
         },
         {
             "id": "my_v_MONTH",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_filter_v_MONTH}"
         },
         {
             "id": "my_emr_subnet_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_subnet}"
         },
         {
             "id": "my_emr_master_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_master_sg}"
         },
         {
             "id": "my_emr_slave_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_slave_sg}"
         },
         {
             "id": "my_emr_service_access_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_service_sg}"
         },
         {
             "id": "my_emr_master_instance_type",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_instance_type}"
         },
         {
             "id": "my_emr_core_instance_type",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_instance_type}"
         },
         {
             "id": "my_emr_instance_core_count",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_core_instance_count}"
         },
         {
             "id": "my_emr_terminate_after",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_terminate_time}"
         },
         {
             "id": "my_emr_region",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_region}"
         },
         {
             "id": "my_emr_role",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_role}"
         },
         {
             "id": "my_emr_resource_role",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_resource_role}"
         }
     ]
 }

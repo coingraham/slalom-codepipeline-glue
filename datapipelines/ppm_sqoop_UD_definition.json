@@ -75,7 +75,7 @@
             "releaseLabel": "emr-5.19.0",
             "terminateAfter": "#{my_emr_terminate_after} Hours",
             "hadoopSchedulerType": "PARALLEL_FAIR_SCHEDULING",
-            "bootstrapAction": "s3://#{my_system_bucket}/Config/emrBootstrap_py36.sh",
+            "bootstrapAction": "s3://#{my_system_bucket}/Config/emrBootstrap_py36_v3.sh",
             "keyPair": "#{my_system_bucket}1",
             "region": "#{my_emr_region}",
             "applications": [
@@ -93,8 +93,9 @@
             },
             "scriptArgument": [
                 "#{my_username}",
-                "#{*my_password}",
-                "#{my_bucket}"
+                "#{my_password}",
+                "#{my_bucket}",
+                "#{my_datetime}"
             ]
         },
         {
@@ -110,67 +111,88 @@
     "parameters": [
         {
             "id": "my_system_bucket",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_system_bucket}"
         },
         {
             "id": "my_sqoop_script",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_sqoop_script}"
         },
         {
             "id": "my_username",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_database_username}"
         },
         {
             "id": "*my_password",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_database_password}"
         },
         {
             "id": "my_bucket",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_destination_bucket}"
+        },
+        {
+            "id": "my_datetime",
+            "type": "string",
+            "default": "${ppm_datetime}"
         },
         {
             "id": "my_emr_subnet_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_subnet}"
         },
         {
             "id": "my_emr_master_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_master_sg}"
         },
         {
             "id": "my_emr_slave_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_slave_sg}"
         },
         {
             "id": "my_emr_service_access_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_service_sg}"
         },
         {
             "id": "my_emr_master_instance_type",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_instance_type}"
         },
         {
             "id": "my_emr_core_instance_type",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_instance_type}"
         },
         {
             "id": "my_emr_instance_core_count",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_core_instance_count}"
         },
         {
             "id": "my_emr_terminate_after",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_terminate_time}"
         },
         {
             "id": "my_emr_region",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_region}"
         },
         {
             "id": "my_emr_role",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_role}"
         },
         {
             "id": "my_emr_resource_role",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_resource_role}"
         }
     ]
 }

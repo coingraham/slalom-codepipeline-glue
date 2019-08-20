@@ -267,6 +267,38 @@
             "id": "ShellActivityId_My_Shell_Activity_11",
             "name": "My Shell Activity 11",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_1"
+              },
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_2"
+              },
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_3"
+              },
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_4"
+              },
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_5"
+              },
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_6"
+              },
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_7"
+              },
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_8"
+              },
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_9"
+              },
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_10"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -285,6 +317,11 @@
             "id": "ShellActivityId_My_Shell_Activity_12",
             "name": "My Shell Activity 12",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_11"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -303,6 +340,11 @@
             "id": "ShellActivityId_My_Shell_Activity_13",
             "name": "My Shell Activity 13",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_11"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -321,6 +363,11 @@
             "id": "ShellActivityId_My_Shell_Activity_14",
             "name": "My Shell Activity 14",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_11"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -339,6 +386,11 @@
             "id": "ShellActivityId_My_Shell_Activity_15",
             "name": "My Shell Activity 15",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_11"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -357,6 +409,11 @@
             "id": "ShellActivityId_My_Shell_Activity_16",
             "name": "My Shell Activity 16",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_11"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -375,6 +432,11 @@
             "id": "ShellActivityId_My_Shell_Activity_17",
             "name": "My Shell Activity 17",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_11"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -393,6 +455,11 @@
             "id": "ShellActivityId_My_Shell_Activity_18",
             "name": "My Shell Activity 18",
             "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_11"
+              }
+            ],
             "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
             "runsOn": {
                 "ref": "EmrClusterId_ppm"
@@ -406,6 +473,29 @@
             ],
             "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity18}",
             "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity18}"
+        },
+        {
+            "id": "ShellActivityId_My_Shell_Activity_19",
+            "name": "My Shell Activity 19",
+            "type": "ShellCommandActivity",
+            "dependsOn": [
+              {
+                "ref": "ShellActivityId_My_Shell_Activity_11"
+              }
+            ],
+            "scriptUri": "s3://#{my_system_bucket}/Controller/Scripts/submit_spark_job.sh",
+            "runsOn": {
+                "ref": "EmrClusterId_ppm"
+            },
+            "scriptArgument": [
+                "s3://#{my_system_bucket}/Controller/Scripts/#{my_systems}/#{my_shell_activity19}.py",
+                "s3://#{my_system_bucket}/Config/wrk_ppm_general.py",
+                "#{my_datalake_bucket}",
+                "#{my_ingest_bucket}",
+                "#{my_system_bucket}"
+            ],
+            "stdout": "s3://#{my_system_bucket}/Controller/Logs/stdout/#{my_shell_activity19}",
+            "stderr": "s3://#{my_system_bucket}/Controller/Logs/stderr/#{my_shell_activity19}"
         },
         {
             "id": "Default",
@@ -552,6 +642,10 @@
         },
         {
             "id": "my_shell_activity18",
+            "type": "string"
+        },
+        {
+            "id": "my_shell_activity19",
             "type": "string"
         }
     ]

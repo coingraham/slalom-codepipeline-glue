@@ -653,175 +653,218 @@
     "parameters": [
         {
             "id": "my_jdbc",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_jdbc}"
         },
         {
             "id": "my_connection",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_connection}"
         },
         {
             "id": "my_hostname",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_hostname}"
         },
         {
             "id": "my_username",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_username}"
         },
         {
             "id": "*my_password",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_password}"
         },
         {
             "id": "my_database",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_database}"
         },
         {
             "id": "my_destination",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_destination}"
         },
         {
             "id": "my_folder",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_folder}"
         },
         {
             "id": "my_number",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_number}"
         },
         {
             "id": "my_system_bucket",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_system_bucket}"
         },
         {
             "id": "my_emr_subnet_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_subnet}"
         },
         {
             "id": "my_emr_master_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_master_sg}"
         },
         {
             "id": "my_emr_slave_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_slave_sg}"
         },
         {
             "id": "my_emr_service_access_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_service_sg}"
         },
         {
             "id": "my_emr_master_instance_type",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_instance_type}"
         },
         {
             "id": "my_emr_core_instance_type",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_instance_type}"
         },
         {
             "id": "my_emr_instance_core_count",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_core_instance_count}"
         },
         {
             "id": "my_emr_terminate_after",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_terminate_time}"
         },
         {
             "id": "my_emr_region",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_region}"
         },
         {
             "id": "my_emr_role",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_role}"
         },
         {
             "id": "my_emr_resource_role",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_resource_role}"
         },
         {
             "id": "my_table1",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_invoice_type"
         },
         {
             "id": "my_table2",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_legal_entity"
         },
         {
             "id": "my_table3",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_payment_method"
         },
         {
             "id": "my_table4",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_payment_terms"
         },
         {
             "id": "my_table5",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_mstr_gl_acct"
         },
         {
             "id": "my_table6",
-            "type": "string"
+            "type": "string",
+            "default": "glb_mstr_sbu_subset_matrix"
         },
         {
             "id": "my_table7",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_business_unit"
         },
         {
             "id": "my_table8",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_currency"
         },
         {
             "id": "my_table9",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_cc_acct"
         },
         {
             "id": "my_table10",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_cost_center_type"
         },
         {
             "id": "my_table11",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_country"
         },
         {
             "id": "my_table12",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_customer_type"
         },
         {
             "id": "my_table13",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_functional_area"
         },
         {
             "id": "my_table14",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_gl_acct"
         },
         {
             "id": "my_table15",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_key_product_group"
         },
         {
             "id": "my_table16",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_location"
         },
         {
             "id": "my_table17",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_plan_type"
         },
         {
             "id": "my_table18",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_profit_center"
         },
         {
             "id": "my_table19",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_rev_acct"
         },
         {
             "id": "my_table20",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_state"
         },
         {
             "id": "my_table21",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_uom"
         },
         {
             "id": "my_table22",
-            "type": "string"
+            "type": "string",
+            "default": "ppm_xref_ext_attribute_type"
         }
     ]
 }

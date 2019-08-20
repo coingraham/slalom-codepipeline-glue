@@ -615,214 +615,6 @@
             ]
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_22",
-            "name": "My Shell Activity 22",
-            "type": "ShellCommandActivity",
-            "dependsOn": [
-              {
-                "ref": "ShellActivityId_My_Shell_Activity_21"
-              }
-            ],
-            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "#{my_jdbc}",
-                "#{my_connection}",
-                "#{my_hostname}",
-                "#{my_username}",
-                "#{*my_password}",
-                "#{my_database}",
-                "#{my_table22}",
-                "#{my_destination}",
-                "#{my_folder}",
-                "#{my_number}"
-            ]
-        },
-        {
-            "id": "ShellActivityId_My_Shell_Activity_23",
-            "name": "My Shell Activity 23",
-            "type": "ShellCommandActivity",
-            "dependsOn": [
-              {
-                "ref": "ShellActivityId_My_Shell_Activity_22"
-              }
-            ],
-            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "#{my_jdbc}",
-                "#{my_connection}",
-                "#{my_hostname}",
-                "#{my_username}",
-                "#{*my_password}",
-                "#{my_database}",
-                "#{my_table23}",
-                "#{my_destination}",
-                "#{my_folder}",
-                "#{my_number}"
-            ]
-        },
-        {
-            "id": "ShellActivityId_My_Shell_Activity_24",
-            "name": "My Shell Activity 24",
-            "type": "ShellCommandActivity",
-            "dependsOn": [
-              {
-                "ref": "ShellActivityId_My_Shell_Activity_23"
-              }
-            ],
-            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "#{my_jdbc}",
-                "#{my_connection}",
-                "#{my_hostname}",
-                "#{my_username}",
-                "#{*my_password}",
-                "#{my_database}",
-                "#{my_table24}",
-                "#{my_destination}",
-                "#{my_folder}",
-                "#{my_number}"
-            ]
-        },
-        {
-            "id": "ShellActivityId_My_Shell_Activity_25",
-            "name": "My Shell Activity 25",
-            "type": "ShellCommandActivity",
-            "dependsOn": [
-              {
-                "ref": "ShellActivityId_My_Shell_Activity_24"
-              }
-            ],
-            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "#{my_jdbc}",
-                "#{my_connection}",
-                "#{my_hostname}",
-                "#{my_username}",
-                "#{*my_password}",
-                "#{my_database}",
-                "#{my_table25}",
-                "#{my_destination}",
-                "#{my_folder}",
-                "#{my_number}"
-            ]
-        },
-        {
-            "id": "ShellActivityId_My_Shell_Activity_26",
-            "name": "My Shell Activity 26",
-            "type": "ShellCommandActivity",
-            "dependsOn": [
-              {
-                "ref": "ShellActivityId_My_Shell_Activity_25"
-              }
-            ],
-            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "#{my_jdbc}",
-                "#{my_connection}",
-                "#{my_hostname}",
-                "#{my_username}",
-                "#{*my_password}",
-                "#{my_database}",
-                "#{my_table26}",
-                "#{my_destination}",
-                "#{my_folder}",
-                "#{my_number}"
-            ]
-        },
-        {
-            "id": "ShellActivityId_My_Shell_Activity_27",
-            "name": "My Shell Activity 27",
-            "type": "ShellCommandActivity",
-            "dependsOn": [
-              {
-                "ref": "ShellActivityId_My_Shell_Activity_26"
-              }
-            ],
-            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "#{my_jdbc}",
-                "#{my_connection}",
-                "#{my_hostname}",
-                "#{my_username}",
-                "#{*my_password}",
-                "#{my_database}",
-                "#{my_table27}",
-                "#{my_destination}",
-                "#{my_folder}",
-                "#{my_number}"
-            ]
-        },
-        {
-            "id": "ShellActivityId_My_Shell_Activity_28",
-            "name": "My Shell Activity 28",
-            "type": "ShellCommandActivity",
-            "dependsOn": [
-              {
-                "ref": "ShellActivityId_My_Shell_Activity_27"
-              }
-            ],
-            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "#{my_jdbc}",
-                "#{my_connection}",
-                "#{my_hostname}",
-                "#{my_username}",
-                "#{*my_password}",
-                "#{my_database}",
-                "#{my_table28}",
-                "#{my_destination}",
-                "#{my_folder}",
-                "#{my_number}"
-            ]
-        },
-        {
-            "id": "ShellActivityId_My_Shell_Activity_29",
-            "name": "My Shell Activity 29",
-            "type": "ShellCommandActivity",
-            "dependsOn": [
-              {
-                "ref": "ShellActivityId_My_Shell_Activity_28"
-              }
-            ],
-            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "#{my_jdbc}",
-                "#{my_connection}",
-                "#{my_hostname}",
-                "#{my_username}",
-                "#{*my_password}",
-                "#{my_database}",
-                "#{my_table29}",
-                "#{my_destination}",
-                "#{my_folder}",
-                "#{my_number}"
-            ]
-        },
-        {
             "id": "Default",
             "name": "Default",
             "scheduleType": "ONDEMAND",
@@ -835,95 +627,213 @@
     "parameters": [
         {
             "id": "my_jdbc",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_jdbc}"
         },
         {
             "id": "my_connection",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_connection}"
         },
         {
             "id": "my_hostname",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_hostname}"
         },
         {
             "id": "my_username",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_username}"
         },
         {
             "id": "*my_password",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_password}"
         },
         {
             "id": "my_database",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_database}"
         },
         {
             "id": "my_destination",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_destination}"
         },
         {
             "id": "my_folder",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_folder}"
         },
         {
             "id": "my_number",
-            "type": "string"
+            "type": "string",
+            "default": "${ppmrps_number}"
         },
         {
             "id": "my_system_bucket",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_system_bucket}"
         },
         {
             "id": "my_emr_subnet_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_subnet}"
         },
         {
             "id": "my_emr_master_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_master_sg}"
         },
         {
             "id": "my_emr_slave_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_slave_sg}"
         },
         {
             "id": "my_emr_service_access_security_group_id",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_service_sg}"
         },
         {
             "id": "my_emr_master_instance_type",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_instance_type}"
         },
         {
             "id": "my_emr_core_instance_type",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_instance_type}"
         },
         {
             "id": "my_emr_instance_core_count",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_core_instance_count}"
         },
         {
             "id": "my_emr_terminate_after",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_terminate_time}"
         },
         {
             "id": "my_emr_region",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_region}"
         },
         {
             "id": "my_emr_role",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_role}"
         },
         {
             "id": "my_emr_resource_role",
-            "type": "string"
+            "type": "string",
+            "default": "${ppm_emr_resource_role}"
         },
         {
             "id": "my_table1",
-            "type": "string"
+            "type": "string",
+            "default": "XREF_INVENTORY_TYPE"
         },
         {
             "id": "my_table2",
-            "type": "string"
+            "type": "string",
+            "default": "XREF_INVOICE_TYPE"
+        },
+        {
+            "id": "my_table3",
+            "type": "string",
+            "default": "XREF_LEGAL_ENTITY"
+        },
+        {
+            "id": "my_table4",
+            "type": "string",
+            "default": "XREF_PAYMENT_METHOD"
+        },
+        {
+            "id": "my_table5",
+            "type": "string",
+            "default": "XREF_PAYMENT_TERMS"
+        },
+        {
+            "id": "my_table6",
+            "type": "string",
+            "default": "XREF_BUSINESS_UNIT"
+        },
+        {
+            "id": "my_table7",
+            "type": "string",
+            "default": "XREF_CURRENCY"
+        },
+        {
+            "id": "my_table8",
+            "type": "string",
+            "default": "XREF_CC_ACCT"
+        },
+        {
+            "id": "my_table9",
+            "type": "string",
+            "default": "XREF_COST_CENTER_TYPE"
+        },
+        {
+            "id": "my_table10",
+            "type": "string",
+            "default": "XREF_COUNTRY"
+        },
+        {
+            "id": "my_table11",
+            "type": "string",
+            "default": "XREF_CUSTOMER_TYPE"
+        },
+        {
+            "id": "my_table12",
+            "type": "string",
+            "default": "XREF_FUNCTIONAL_AREA"
+        },
+        {
+            "id": "my_table13",
+            "type": "string",
+            "default": "XREF_GL_ACCT"
+        },
+        {
+            "id": "my_table14",
+            "type": "string",
+            "default": "XREF_KEY_PRODUCT_GROUP"
+        },
+        {
+            "id": "my_table15",
+            "type": "string",
+            "default": "XREF_LOCATION"
+        },
+        {
+            "id": "my_table16",
+            "type": "string",
+            "default": "XREF_PLAN_TYPE"
+        },
+        {
+            "id": "my_table17",
+            "type": "string",
+            "default": "XREF_PROFIT_CENTER"
+        },
+        {
+            "id": "my_table18",
+            "type": "string",
+            "default": "XREF_REV_ACCT"
+        },
+        {
+            "id": "my_table19",
+            "type": "string",
+            "default": "XREF_STATE"
+        },
+        {
+            "id": "my_table20",
+            "type": "string",
+            "default": "XREF_UOM"
+        },
+        {
+            "id": "my_table21",
+            "type": "string",
+            "default": "XREF_EXT_ATTRIBUTE_TYPE"
         }
     ]
 }

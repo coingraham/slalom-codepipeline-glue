@@ -66,6 +66,29 @@ resource "aws_iam_role_policy" "glue_s3_access_policy" {
         "arn:aws:s3:::wrk-ingest-poc-dev",
         "arn:aws:s3:::wrk-ingest-poc-dev/*"
       ]
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "ssm:DescribeParameters"
+        ],
+        "Resource": "*"
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "ssm:GetParameter"
+        ],
+        "Resource": "arn:aws:ssm:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:parameter/${var.environment}/${var.project}*"
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "kms:Decrypt"
+        ],
+        "Resource": [
+            "${data.aws_kms_key.ssm_key.arn}"
+        ]
     }
   ]
 }
@@ -157,6 +180,29 @@ resource "aws_iam_role_policy" "datapipeline_emr_resource_policy" {
       "Resource": [
         "*"
       ]
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "ssm:DescribeParameters"
+        ],
+        "Resource": "*"
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "ssm:GetParameter"
+        ],
+        "Resource": "arn:aws:ssm:${data.aws_region.current.name}:${data.aws_caller_identity.current.account_id}:parameter/${var.environment}/${var.project}*"
+    },
+    {
+        "Effect": "Allow",
+        "Action": [
+            "kms:Decrypt"
+        ],
+        "Resource": [
+            "${data.aws_kms_key.ssm_key.arn}"
+        ]
     }
   ]
 }

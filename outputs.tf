@@ -3,6 +3,14 @@
 #   value = aws_codepipeline.codepipeline_glue_dp_jobs.name
 # }
 
+output "sqoop_sqoop_init_master_datapipeline_id" {
+  value = aws_datapipeline_pipeline.sqoop_init_master.id
+}
+
+output "sqoop_sqoop_init_xref_datapipeline_id" {
+  value = aws_datapipeline_pipeline.sqoop_init_xref.id
+}
+
 output "sqoop_landing_mstr1_datapipeline_id" {
   value = aws_datapipeline_pipeline.sqoop_landing_mstr1.id
 }

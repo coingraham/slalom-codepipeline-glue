@@ -797,32 +797,6 @@
             ]
         },
         {
-            "id": "ShellActivityId_My_Shell_Activity_29",
-            "name": "My Shell Activity 29",
-            "type": "ShellCommandActivity",
-            "dependsOn": [
-              {
-                "ref": "ShellActivityId_My_Shell_Activity_28"
-              }
-            ],
-            "scriptUri": "s3://#{my_system_bucket}/Sqoop/Scripts/Sqoop-Import.sh",
-            "runsOn": {
-                "ref": "EmrClusterId_ppm"
-            },
-            "scriptArgument": [
-                "#{my_jdbc}",
-                "#{my_connection}",
-                "#{my_hostname}",
-                "#{my_username}",
-                "#{*my_password}",
-                "#{my_database}",
-                "#{my_table29}",
-                "#{my_destination}",
-                "#{my_folder}",
-                "#{my_number}"
-            ]
-        },
-        {
             "id": "Default",
             "name": "Default",
             "scheduleType": "ONDEMAND",
@@ -941,147 +915,142 @@
         {
             "id": "my_table1",
             "type": "string",
-            "default": "glb_mstr_acct_type"
+            "default": "MSTR_ACCT_TYPE"
         },
         {
             "id": "my_table2",
             "type": "string",
-            "default": "glb_mstr_business_segment"
+            "default": "MSTR_BUSINESS_SEGMENT"
         },
         {
             "id": "my_table3",
             "type": "string",
-            "default": "glb_mstr_business_unit"
+            "default": "MSTR_BUSINESS_UNIT"
         },
         {
             "id": "my_table4",
             "type": "string",
-            "default": "glb_mstr_consolidation_company"
+            "default": "MSTR_CONSOLIDATION_COMPANY"
         },
         {
             "id": "my_table5",
             "type": "string",
-            "default": "glb_mstr_currency"
+            "default": "MSTR_CURRENCY"
         },
         {
             "id": "my_table6",
             "type": "string",
-            "default": "glb_mstr_loc_platform"
+            "default": "MSTR_LOC_PLATFORM"
         },
         {
             "id": "my_table7",
             "type": "string",
-            "default": "glb_mstr_location_type"
+            "default": "MSTR_LOCATION_TYPE"
         },
         {
             "id": "my_table8",
             "type": "string",
-            "default": "glb_mstr_lrd_loc"
+            "default": "MSTR_LRD_LOC"
         },
         {
             "id": "my_table9",
             "type": "string",
-            "default": "glb_mstr_new_segment"
+            "default": "MSTR_NEW_SEGMENT"
         },
         {
             "id": "my_table10",
             "type": "string",
-            "default": "glb_mstr_loc_region"
+            "default": "MSTR_LOC_REGION"
         },
         {
             "id": "my_table11",
             "type": "string",
-            "default": "glb_mstr_loc_sub_platform"
+            "default": "MSTR_LOC_SUB_PLATFORM"
         },
         {
             "id": "my_table12",
             "type": "string",
-            "default": "glb_mstr_product_category"
+            "default": "MSTR_PRODUCT_CATEGORY"
         },
         {
             "id": "my_table13",
             "type": "string",
-            "default": "glb_mstr_product_platform"
+            "default": "MSTR_PRODUCT_PLATFORM"
         },
         {
             "id": "my_table14",
             "type": "string",
-            "default": "glb_mstr_top_product_level"
+            "default": "MSTR_TOP_PRODUCT_LEVEL"
         },
         {
             "id": "my_table15",
             "type": "string",
-            "default": "glb_mstr_product_name"
+            "default": "MSTR_PRODUCT_NAME"
         },
         {
             "id": "my_table16",
             "type": "string",
-            "default": "glb_mstr_summary_product_level"
+            "default": "MSTR_SUMMARY_PRODUCT_LEVEL"
         },
         {
             "id": "my_table17",
             "type": "string",
-            "default": "glb_mstr_poc_loc"
+            "default": "MSTR_POC_LOC"
         },
         {
             "id": "my_table18",
             "type": "string",
-            "default": "glb_mstr_product_family_level"
+            "default": "MSTR_PRODUCT_FAMILY_LEVEL"
         },
         {
             "id": "my_table19",
             "type": "string",
-            "default": "glb_mstr_uom_type"
+            "default": "MSTR_UOM_TYPE"
         },
         {
             "id": "my_table20",
             "type": "string",
-            "default": "glb_mstr_uom"
+            "default": "MSTR_UOM"
         },
         {
             "id": "my_table21",
             "type": "string",
-            "default": "glb_conv_uom"
+            "default": "CONV_UOM"
         },
         {
             "id": "my_table22",
             "type": "string",
-            "default": "ppm_mstr_cc_acct_grp_rpt"
+            "default": "MSTR_CC_ACCT_GRP_RPT"
         },
         {
             "id": "my_table23",
             "type": "string",
-            "default": "ppm_mstr_cc_acct_grp"
+            "default": "MSTR_CC_ACCT_GRP"
         },
         {
             "id": "my_table24",
             "type": "string",
-            "default": "ppm_mstr_cc_acct"
+            "default": "MSTR_CC_ACCT"
         },
         {
             "id": "my_table25",
             "type": "string",
-            "default": "glb_mstr_sbu_subset"
+            "default": "MSTR_SBU_SUBSET"
         },
         {
             "id": "my_table26",
             "type": "string",
-            "default": "ppm_mstr_rev_acct"
+            "default": "MSTR_KEY_PRODUCT_GROUP"
         },
         {
             "id": "my_table27",
             "type": "string",
-            "default": "ppm_mstr_rev_acct_grp_rpt"
+            "default": "MSTR_GL_ACCT"
         },
         {
             "id": "my_table28",
             "type": "string",
-            "default": "glb_mstr_key_product_group"
-        },
-        {
-            "id": "my_table29",
-            "type": "string",
-            "default": "ppm_xref_inventory_type"
+            "default": "MSTR_SBU_SUBSET_MATRIX"
         }
     ]
 }
