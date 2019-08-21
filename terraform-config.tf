@@ -14,5 +14,10 @@ terraform {
 provider "aws" {
   region = var.region
   version = "~> 2.22"
-  profile = "mwv"
+  profile = "tech"
+
+  assume_role {
+    role_arn     = var.role_arn
+    session_name = "terraform"
+  }
 }
