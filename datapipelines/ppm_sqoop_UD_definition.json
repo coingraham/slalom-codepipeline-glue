@@ -93,7 +93,7 @@
             },
             "scriptArgument": [
                 "#{my_username}",
-                "#{my_password}",
+                "#{*my_password}",
                 "#{my_bucket}",
                 "#{my_UD_LAST_LOAD_TIMESTAMP}"
             ]

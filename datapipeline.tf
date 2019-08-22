@@ -372,10 +372,10 @@ data "template_file" "sqoop_udus" {
 resource "null_resource" "update_sqoop_udus_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    # datapipeline_id = "${uuid()}"
+    datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    datapipeline_id = "df-00617841ZO91R7CRG0U8"
+    # datapipeline_id = "df-07315523KL8R8Z3QFUP3"
   }
 
   provisioner "local-exec" {

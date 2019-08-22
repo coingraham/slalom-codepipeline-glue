@@ -111,69 +111,6 @@ data "aws_s3_bucket" "project_system_bucket" {
 
 # }
 
-# # Sample Glue job with S3 reference
-# resource "aws_glue_job" "this" {
-#   name     = "this"
-#   role_arn = "${aws_iam_role.glue_role.arn}"
-#   max_capacity = 2
-
-#   command {
-#     script_location = "s3://${aws_s3_bucket.codepipeline_bucket.bucket}/gluecode/helloworld.py"
-#   }
-# }
-
-resource "aws_glue_catalog_database" "ods_database" {
-  name = "wrk-${var.project}-ods-${var.environment}"
-}
-
-resource "aws_glue_crawler" "ods_transform" {
-  database_name = "${aws_glue_catalog_database.ods_database.name}"
-  name          = "wrk-${var.project}-ods-transform-${var.environment}"
-  role          = "${aws_iam_role.glue_role.arn}"
-
-  s3_target {
-    # path = "s3://${aws_s3_bucket.project_datalake_bucket.bucket}/Transformed"
-    path = "s3://wrk-datalake-ppm-dev/Transformed"
-    exclusions = [
-      "**/_SUCCESS"
-    ]
-  }
-
-#   configuration = <<EOF
-# {
-#   "Version":1.0,
-#   "Grouping": {
-#     "TableGroupingPolicy": "CombineCompatibleSchemas"
-#   }
-# }
-# EOF
-
-}
-
-resource "aws_glue_crawler" "ctrl_tables" {
-  database_name = "${aws_glue_catalog_database.ods_database.name}"
-  name          = "wrk-${var.project}-ctrl-tables-${var.environment}"
-  role          = "${aws_iam_role.glue_role.arn}"
-
-  s3_target {
-    # path = "s3://${aws_s3_bucket.project_datalake_bucket.bucket}/Logs/AuroraDB/PPMODS"
-    path = "s3://wrk-system-ppm-dev/Logs/AuroraDB/PPMODS"
-    exclusions = [
-      "**/_SUCCESS"
-    ]
-  }
-
-#   configuration = <<EOF
-# {
-#   "Version":1.0,
-#   "Grouping": {
-#     "TableGroupingPolicy": "CombineCompatibleSchemas"
-#   }
-# }
-# EOF
-
-}
-
 resource "aws_rds_cluster" "aurora_rds_cluster" {
   cluster_identifier      = "wrk-${var.project}-rps-${var.environment}"
   engine                  = "aurora-postgresql"
