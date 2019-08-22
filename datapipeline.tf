@@ -36,10 +36,10 @@ data "template_file" "sqoop_init_master" {
 resource "null_resource" "update_sqoop_init_master_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    datapipeline_id = "${uuid()}"
+    # datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    # datapipeline_id = "df-0355124ORILIUY9OKYX"
+    datapipeline_id = "df-0355124ORILIUY9OKYX"
   }
 
   provisioner "local-exec" {
@@ -85,10 +85,10 @@ data "template_file" "sqoop_init_xref" {
 resource "null_resource" "update_sqoop_init_xref_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    datapipeline_id = "${uuid()}"
+    # datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    # datapipeline_id = "df-046864136OVCRQLEAI0U"
+    datapipeline_id = "df-046864136OVCRQLEAI0U"
   }
 
   provisioner "local-exec" {
@@ -309,8 +309,8 @@ data "template_file" "sqoop_s3" {
     ppm_database_password = aws_ssm_parameter.ppm_s3_database_password.value
     # ppm_destination_bucket = "s3://wrk-ingest-${var.project}-dev"
     ppm_destination_bucket = "wrk-ingest-poc-dev"
-    ppm_filter_v_YEAR = "2019"
-    ppm_filter_v_MONTH = "07"
+    ppm_filter_YEAR = "2019"
+    ppm_filter_PERIOD = "07"
     ppm_emr_subnet = var.sqoop_emr_subnet
     ppm_emr_master_sg = var.emr_master_sg
     ppm_emr_slave_sg = var.emr_slave_sg
@@ -330,7 +330,7 @@ resource "null_resource" "update_sqoop_s3_datapipeline_definition" {
     # datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    datapipeline_id = "df-05178513IS3S07RSGBLX"
+    datapipeline_id = "df-06790522VBAI6UOBKEDM"
   }
 
   provisioner "local-exec" {
@@ -767,14 +767,14 @@ EOF
   }
 }
 
-resource "aws_datapipeline_pipeline" "UD" {
-    name        = "ppm_controller_UD_tf_${var.environment}"
+resource "aws_datapipeline_pipeline" "UDUS" {
+    name        = "ppm_controller_UDUS_tf_${var.environment}"
 }
 
-data "template_file" "UD" {
+data "template_file" "UDUS" {
   template = "${file("${path.module}/datapipelines/ppm_controller_UD_values.json")}"
   vars = {
-    ppm_system = "UD"
+    ppm_system = "UDUS"
     ppm_emr_instance_type = "m5.2xlarge"
     ppm_emr_terminate_time = "1"
     ppm_emr_core_instance_count = "3"
@@ -795,21 +795,21 @@ data "template_file" "UD" {
   }
 }
 
-resource "null_resource" "update_UD_datapipeline_definition" {
+resource "null_resource" "update_UDUS_datapipeline_definition" {
   triggers = {
     # Uncomment the below if you want this to run every time
-    datapipeline_id = "${uuid()}"
+    # datapipeline_id = "${uuid()}"
 
     # Uncomment the below and the definition update won't run every time
-    # datapipeline_id = "UPDATE ME"
+    datapipeline_id = "df-03661043UMIPAHWDXZWZ"
   }
 
   provisioner "local-exec" {
     command = <<EOF
 aws datapipeline put-pipeline-definition \
---pipeline-id ${aws_datapipeline_pipeline.UD.id} \
+--pipeline-id ${aws_datapipeline_pipeline.UDUS.id} \
 --pipeline-definition file://datapipelines/ppm_controller_UD_definition.json \
---parameter-values-uri '${data.template_file.UD.rendered}' \
+--parameter-values-uri '${data.template_file.UDUS.rendered}' \
 EOF
   }
 }

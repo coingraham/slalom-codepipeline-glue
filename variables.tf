@@ -4,8 +4,6 @@ variable "environment" {}
 
 variable "project" {}
 
-variable "role_arn" {}
-
 variable "emr_subnet" {
   description = "The workspace to refrence for state files"
   type        = "string"

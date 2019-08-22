@@ -95,8 +95,8 @@
                 "#{my_username}",
                 "#{*my_password}",
                 "#{my_bucket}",
-                "#{my_v_YEAR}",
-                "#{my_v_MONTH}"
+                "#{my_YEAR}",
+                "#{my_PERIOD}"
             ]
         },
         {
@@ -136,14 +136,14 @@
             "default": "${ppm_destination_bucket}"
         },
         {
-            "id": "my_v_YEAR",
+            "id": "my_YEAR",
             "type": "string",
-            "default": "${ppm_filter_v_YEAR}"
+            "default": "${ppm_filter_YEAR}"
         },
         {
-            "id": "my_v_MONTH",
+            "id": "my_PERIOD",
             "type": "string",
-            "default": "${ppm_filter_v_MONTH}"
+            "default": "${ppm_filter_PERIOD}"
         },
         {
             "id": "my_emr_subnet_id",

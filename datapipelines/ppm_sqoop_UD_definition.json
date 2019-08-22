@@ -95,7 +95,7 @@
                 "#{my_username}",
                 "#{my_password}",
                 "#{my_bucket}",
-                "#{my_datetime}"
+                "#{my_UD_LAST_LOAD_TIMESTAMP}"
             ]
         },
         {
@@ -135,7 +135,7 @@
             "default": "${ppm_destination_bucket}"
         },
         {
-            "id": "my_datetime",
+            "id": "my_UD_LAST_LOAD_TIMESTAMP",
             "type": "string",
             "default": "${ppm_datetime}"
         },

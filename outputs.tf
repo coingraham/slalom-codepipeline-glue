@@ -83,8 +83,8 @@ output "MDMS_XRef1_datapipeline_id" {
   value = aws_datapipeline_pipeline.MDMS_XRef1.id
 }
 
-output "UD_datapipeline_id" {
-  value = aws_datapipeline_pipeline.UD.id
+output "UDUS_datapipeline_id" {
+  value = aws_datapipeline_pipeline.UDUS.id
 }
 
 output "MQ_datapipeline_id" {
